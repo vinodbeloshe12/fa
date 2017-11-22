@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~swiper/dist/css/swiper.min.css';
+/* @import "https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css"; */
+
+/* .swiper-pagination {
+    position: absolute !important;
+    top: 13px;
+    bottom: auto !important;
+} */
+
+
+body{
+    position: relative;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    color: #A6A6A6;
+    padding: 0;
+    margin: 0;
+}
+
+.pageBg{
+    background-color: #f7f7f7;
+    padding: 30px;
+}
+
+.mt20{
+    margin-top: 20px;
+}
+
+ul.nav-tabs {
+    border-bottom: 3px solid #D4D4D4 !important;
+    margin-bottom: 20px;
+}
+
+ul.nav-tabs li{
+    cursor: pointer;
+}
+ul.nav-tabs li.active {
+    color: #1f3781 !important;
+    position: relative;
+}
+
+ul.nav-tabs li.active:before {
+    content: '';
+    position: absolute;
+    border-bottom: 3px solid #1f367f;
+    bottom: -3px;
+    width: 100%;
+}
+
+ul.nav-tabs li a.btn {
+    /* color: #1f1f20; */
+    /* font-weight: bold; */
+    padding: 5px 10px 3px 10px;
+}
+
+
+
+
+

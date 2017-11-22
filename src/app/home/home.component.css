@@ -1,0 +1,144 @@
+.categoryHolder{
+    margin-bottom: 20px;
+    position: relative;
+}
+.categoryHolder a{
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.categoryHolder a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../assets/images/overlay-gallery.png) no-repeat;
+    background-color: transparent;
+    background-size: 100% 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+.categoryHolder a:hover:after{
+    opacity: 1 !important;
+}
+
+
+.catLabel {
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 10px;
+    color: #f0eaea;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.moreCat{
+    background-image: url('../../assets/images/bg-button.jpg');
+    background-position: center center;
+    background-size: cover;
+    border-radius: 4px;
+    margin: 0px;
+}
+
+.moreCat a{
+    width: 100%;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 20px;
+    color: #c7c2c2;
+    background-color: #133782eb;
+}
+
+.moreCat a:hover {
+    transition: all .5s;
+    text-decoration: none;
+    color: #e4dfdf !important;
+    background-color: #133782f2 !important;
+}
+
+h4.title{
+    color: #133782f2;
+}
+
+.recentItem{
+    width: 100%;
+    height: auto;
+    background:#fff;
+    margin: 0px 0px 20px 0px;
+}
+
+ .imgHolder{
+    width:30%;
+    position: relative;
+}
+
+.verify{
+    position: absolute;
+    left: 10px;
+    top: 0px;   
+}
+
+ .itemDetails{
+    width: 70%;
+    padding: 15px 10px;
+    margin: 0px;
+}
+
+.itemDetails h5{
+    color: #133782f2;
+}
+
+.address:after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-right: 2px dotted #D4D4D4;
+}
+
+.viewBtn{
+    padding: 5px 8px;
+    min-width: 90px;
+    font-size: 12px;
+    width: auto;
+    margin-bottom: 10px;
+    border: 1px solid #133782;
+    border-radius: 4px;
+    background: #fff;
+    color: #4b4848;
+    text-transform: uppercase;
+    transition: all .5s;
+}
+
+.viewBtn:hover{
+    background: #133782;;
+    color: #f0eaea;
+    cursor: pointer;
+}
+
+
+.grow {
+    padding: 5px;
+    border-radius:10px;
+     width: 50px; 
+     float: right; 
+      position: relative; 
+      transition:width 0.5s; 
+      
+      text-align: center;
+  
+  }
+.grow:hover {
+    width: 115px; /* This is the height on hover */
+}
