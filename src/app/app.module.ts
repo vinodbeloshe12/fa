@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app.router';
 import { FooterComponent } from './footer/footer.component';
 import { CategoryComponent } from './category/category.component';
 import { ListingComponent } from './listing/listing.component';
+import { DetailsComponent } from './details/details.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ListingComponent } from './listing/listing.component';
     HomeComponent,
     FooterComponent,
     CategoryComponent,
-    ListingComponent
+    ListingComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,76 @@
+.pageBg {
+  background-color: #f7f7f7;
+  padding: 20px !important;
+}
+
+h1.title {
+  font-size: 30px;
+  color: #133782;
+  /* text-align: center; */
+  margin-bottom: 10px;
+}
+
+.add {
+  color: #666;
+  margin-bottom: 7px;
+}
+
+.call {
+  color: #666;
+  margin-bottom: 7px;
+}
+
+.email a {
+  color: #666;
+  margin-bottom: 7px;
+}
+
+.email a:hover {
+  color: #133782;
+  text-decoration: none;
+}
+
+.email i {
+  color: #133782;
+}
+
+.profile {
+  margin-top: 20px;
+  color: #666;
+}
+
+.profile .ratingBox {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  float: left;
+  margin-right: 10px;
+  background: #55A649;
+}
+
+.profile h6 {
+  margin-bottom: 2px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+h6.verified {
+  /* background-image: url("../../assets/images/verify.jpg"); */
+}
+
+.services {
+  margin-top: 25px;
+}
+
+.services h3 {
+  font-size: 22px;
+  padding: 5px 0px;
+  color: #133782;
+  border-bottom: 2px solid #ccc;
+}
