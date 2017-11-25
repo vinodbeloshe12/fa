@@ -1,0 +1,75 @@
+<div class="container-fliud bgCat">
+  <div class="container">
+    <div class="swiper-container bgCatHolder" [swiper]="config">
+      <div class="swiper-wrapper">
+        <div *ngFor="let item of category" class="swiper-slide catItem" data-swiper-autoplay="3000">
+           <i class="fa {{item.icon}}" aria-hidden="true"></i>
+          <span class="catTitle"> {{item.name}}</span>
+        </div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div> 
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid pageBg">
+  <div class="container">
+<div class="row">
+  <div class="col-md-5">
+    <h1 class="title">Seleted Category</h1>
+  </div>
+  <div class="col-md-7 breadcrub">
+   <a [routerLink]="['/home']">Home</a>  / Selected Category
+  </div>
+</div>
+    <div class="row">
+            <div class="col-md-3 categoryHolder">
+            <a [routerLink]="['/category']" > <img src="assets/images/category/1.jpg" alt="">
+           <div class="catLabel">Restaurant</div>
+           </a>
+           </div>
+           <div class="col-md-3 categoryHolder">
+              <a href=""> <img src="assets/images/category/2.jpg" alt="">
+             <div class="catLabel">Restaurant</div>
+             </a>
+             </div>
+             <div class="col-md-3 categoryHolder">
+                <a href=""> <img src="assets/images/category/3.jpg" alt="">
+               <div class="catLabel">Restaurant</div>
+               </a>
+               </div>
+               <div class="col-md-3 categoryHolder">
+                  <a href=""> <img src="assets/images/category/4.jpg" alt="">
+                 <div class="catLabel">Restaurant</div>
+                 </a>
+                 </div>
+        
+      <div class="col-md-3 categoryHolder">
+     <a href=""> <img src="assets/images/category/5.jpg" alt="">
+    <div class="catLabel">Restaurant</div>
+    </a>
+    </div>
+    <div class="col-md-3 categoryHolder">
+      <a href="">  
+          <img src="assets/images/category/6.jpg" alt="">
+          <div class="catLabel">Doctor</div>
+        </a>
+    </div>
+    <div class="col-md-3 categoryHolder">
+        <a href="">  
+        <img src="assets/images/category/7.jpg" alt="">
+        <div class="catLabel">Hospital</div>
+        </a>  
+      </div>
+      <div class="col-md-3 categoryHolder">
+          <a href="">  
+        <img src="assets/images/category/8.jpg" alt="">
+        <div class="catLabel">Hotel</div>
+        </a>
+      </div>
+      </div>
+  </div>
+</div>

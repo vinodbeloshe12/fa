@@ -1,5 +1,8 @@
 {
   "compileOnSave": false,
+  // "include": [
+  //   "node_modules/ng2-go-top-button/src/**/*"
+  // ],
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -16,4 +19,5 @@
       "dom"
     ]
   }
+
 }

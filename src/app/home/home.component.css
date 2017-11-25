@@ -1,43 +1,4 @@
-.categoryHolder{
-    margin-bottom: 20px;
-    position: relative;
-}
-.categoryHolder a{
-    position: relative;
-    display: block;
-    overflow: hidden;
-}
 
-.categoryHolder a:after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url(../../assets/images/overlay-gallery.png) no-repeat;
-    background-color: transparent;
-    background-size: 100% 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: all 0.3s linear;
-}
-
-.categoryHolder a:hover:after{
-    opacity: 1 !important;
-}
-
-
-.catLabel {
-    position: absolute;
-    z-index: 1;
-    top: 10px;
-    left: 10px;
-    color: #f0eaea;
-    font-weight: bold;
-    font-size: 20px;
-    text-transform: capitalize;
-}
 
 .moreCat{
     background-image: url('../../assets/images/bg-button.jpg');
@@ -128,17 +89,55 @@ h4.title{
 }
 
 
-.grow {
-    padding: 5px;
-    border-radius:10px;
-     width: 50px; 
-     float: right; 
-      position: relative; 
-      transition:width 0.5s; 
-      
-      text-align: center;
-  
+.growSocial {
+   padding: 2px;
+   border-radius: 50px 0px 0px 50px;
+    width: 25px;
+    height: 25px;
+    right: 1px;
+    bottom: 0px;
+    overflow: hidden;
+    position: absolute;
+    transition: all 0.5s;
+    text-align: center;
   }
-.grow:hover {
-    width: 115px; /* This is the height on hover */
+.growSocial:hover {
+    width: 140px;
+}
+
+
+.growSocial i{
+    padding: 0px 5px;
+    color: #a7a6ba;
+}
+
+.growSocial i.fa.fa-facebook:hover{
+       color: #3b5998;
+}
+
+.growSocial i.fa.fa-twitter:hover{
+    color: #0084b4;
+}
+
+.growSocial i.fa.fa-google-plus:hover{
+    color: #d34836;
+}
+
+.growSocial span .fa.fa-share-alt{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    line-height: 26px;
+    color: #1f3781;
+    width: 25px;
+    background: #f8f7f7;
+    height: 25px;
+  }
+
+  .rating {
+    color: #677fa9;
+    font-size: 13px;
+    font-weight: 600;
+    position: relative;
+    bottom: 2px;
 }

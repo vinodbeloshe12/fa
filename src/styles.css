@@ -1,61 +1,184 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~swiper/dist/css/swiper.min.css';
+
 /* @import "https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css"; */
 
-/* .swiper-pagination {
-    position: absolute !important;
-    top: 13px;
-    bottom: auto !important;
-} */
-
-
-body{
-    position: relative;
-    font-family: "Open Sans", sans-serif;
-    font-size: 14px;
-    color: #A6A6A6;
-    padding: 0;
-    margin: 0;
+body {
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #A6A6A6;
+  padding: 0;
+  margin: 0;
 }
 
-.pageBg{
-    background-color: #f7f7f7;
-    padding: 30px;
+.pageBg {
+  background-color: #f7f7f7;
+  padding: 30px;
 }
 
-.mt20{
-    margin-top: 20px;
+.mt20 {
+  margin-top: 20px;
 }
 
 ul.nav-tabs {
-    border-bottom: 3px solid #D4D4D4 !important;
-    margin-bottom: 20px;
+  border-bottom: 3px solid #D4D4D4 !important;
+  margin-bottom: 20px;
 }
 
-ul.nav-tabs li{
-    cursor: pointer;
+ul.nav-tabs li {
+  cursor: pointer;
 }
+
 ul.nav-tabs li.active {
-    color: #1f3781 !important;
-    position: relative;
+  color: #1f3781 !important;
+  position: relative;
 }
 
 ul.nav-tabs li.active:before {
-    content: '';
-    position: absolute;
-    border-bottom: 3px solid #1f367f;
-    bottom: -3px;
-    width: 100%;
+  content: '';
+  position: absolute;
+  border-bottom: 3px solid #1f367f;
+  bottom: -3px;
+  width: 100%;
 }
 
 ul.nav-tabs li a.btn {
-    /* color: #1f1f20; */
-    /* font-weight: bold; */
-    padding: 5px 10px 3px 10px;
+  /* color: #1f1f20; */
+  /* font-weight: bold; */
+  padding: 5px 10px 3px 10px;
 }
 
 
+/* breadcrub */
+
+.breadcrub {
+  text-align: right;
+  color: #1f3781;
+}
+
+.breadcrub a {
+  color: #6ea6bd;
+}
+
+.breadcrub a:hover {
+  color: #1f3781;
+  text-decoration: none;
+}
 
 
+/* homecat */
 
+.categoryHolder {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.categoryHolder a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.categoryHolder img {
+  object-fit: cover;
+  width: 100%;
+  /* height: -webkit-fill-available; */
+  /* max-height: 300px; */
+}
+
+.categoryHolder a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('assets/images/overlay-gallery.png') no-repeat;
+  background-color: transparent;
+  background-size: 100% 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
+.categoryHolder a:hover:after {
+  opacity: 1 !important;
+}
+
+.catLabel {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+  color: #f0eaea;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+
+/* category */
+
+.bgCat {
+  height: auto;
+  width: 100%;
+  padding: 30px 0px;
+  background-color: #ccc;
+  background-image: url('assets/images/bg/bg.jpg');
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: center;
+}
+
+.bgCatHolder {
+  width: 100%;
+  background-color: #ffffffb5;
+}
+
+.bgCatHolder .swiper-button-prev {
+  height: 22px;
+}
+
+.bgCatHolder .swiper-button-next {
+  height: 22px;
+}
+
+.catItem {
+  width: 100%;
+  text-align: center;
+  padding: 25px 0px 10px 0px;
+}
+
+.catItem i {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  line-height: 70px;
+  border-radius: 100%;
+  background: #fff;
+  color: #1f3781;
+  font-size: 30px;
+  cursor: pointer;
+  transition: transform ease-out 0.1s, background 0.2s;
+}
+
+.catItem:hover i {
+  background: #1f3781;
+  transform: scale(0.92);
+  color: #fff;
+}
+
+.catTitle {
+  width: 95%;
+  margin-top: 10px;
+  float: left;
+  font-weight: 600;
+  font-size: 13px;
+  color: #262626;
+  cursor: pointer;
+}
