@@ -74,3 +74,75 @@ h6.verified {
   color: #133782;
   border-bottom: 2px solid #ccc;
 }
+
+.addBanner {
+  margin: 20px 0px;
+}
+
+.callEnq i {
+  color: #22347f;
+  font-size: 24px;
+  background: #ddd;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  top: 10px;
+}
+
+.callEnq span {
+  font-size: 20px;
+  color: #5c5c5c;
+  margin: 0px 10px;
+}
+
+form.contactUs {
+  margin-top: 25px;
+  border: 2px solid #22347f;
+  padding: 20px 20px 45px 20px;
+  border-radius: 4px;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.contactUs h2 {
+  font-size: 22px;
+  color: #22347f;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  background-color: #f8f7f7;
+  padding: 4px 10px;
+  border-radius: 0px;
+}
+
+form.contactUs textarea {
+  background-color: #f8f7f7;
+  width: 100%;
+  border: 1px solid #ced4da;
+  max-height: 120px;
+  min-height: 120px;
+}
+
+.btn-fa {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  color: #fff;
+  overflow: hidden;
+  background-color: #22347f;
+  border-radius: 0px;
+}
+
+.btn-fa i {
+  margin-right: 10px;
+}
+
+.btn-fa:hover {
+  background: #54a748;
+  cursor: pointer;
+}
