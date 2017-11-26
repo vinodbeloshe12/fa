@@ -338,6 +338,6 @@ ul.nav-tabs li a.btn {
   color: #677fa9;
   font-size: 13px;
   font-weight: 600;
-  position: relative;
+  position: absolute;
   bottom: 2px;
 }

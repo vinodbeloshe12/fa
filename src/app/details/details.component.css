@@ -79,6 +79,10 @@ h6.verified {
   margin: 20px 0px;
 }
 
+.extraDetails {
+  margin: 20px 0px;
+}
+
 .callEnq i {
   color: #22347f;
   font-size: 24px;
@@ -117,6 +121,7 @@ form.contactUs {
   background-color: #f8f7f7;
   padding: 4px 10px;
   border-radius: 0px;
+  font-size: 13px;
 }
 
 form.contactUs textarea {
