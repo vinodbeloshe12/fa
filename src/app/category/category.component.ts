@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule, Routes, Router, ActivatedRoute } from "@angular/router";
+import { CategoryService } from "../services/category.service";
+
 
 @Component({
   selector: 'app-category',
@@ -7,71 +10,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
 
+  params: any;
+  categoryData: any;
+  allCategoryData: any;
   config: any = {
     direction: 'horizontal',
     slidesPerView: '8',
     observer: true,
-   paginationClickable: true,
+    paginationClickable: true,
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
-    effect:'slide',  //"slide", "fade", "cube", "coverflow" or "flip"
+    effect: 'slide',  //"slide", "fade", "cube", "coverflow" or "flip"
     autoplay: false
   };
 
-  constructor() { }
+  constructor(public activatedRoute: ActivatedRoute, private categoryservice: CategoryService) { }
 
-  category=[
-    {
-name:"Doctors",
-icon:"fa fa-user-md"
-  },
-  {
-    name:"Hotel",
-    icon:"fa fa-building-o"
-  },
-  {
-    name:"Test",
-    icon:"fa fa-user-md"
-  },
-  {
-    name:"Test5",
-    icon:"fa fa-user-md"
-  },
-  {
-    name:"testing text for more thane on line",
-    icon:"fa fa-user-md"
-  },
-  {
-    name:"ghjghjhjhj sdjsjj ",
-    icon:"fa fa-user-md"
-  },
-  {
-    name:"Doctors",
-    icon:"fa fa-user-md"
-      },
-      {
-        name:"Hotel",
-        icon:"fa fa-building-o"
-      },
-      {
-        name:"Test",
-        icon:"fa fa-user-md"
-      },
-      {
-        name:"Test5",
-        icon:"fa fa-user-md"
-      },
-      {
-        name:"asdfff",
-        icon:"fa fa-user-md"
-      },
-      {
-        name:"ghjghjhjhj",
-        icon:"fa fa-user-md"
-      }
-]
 
   ngOnInit() {
+    // this.activatedRoute.url.subscribe(url => {
+    // });
+    this.activatedRoute.params.subscribe(params => {
+      this.params = params;
+      this.getCategoryData();
+      this.getAllCategory();
+    });
+  }
+
+  getAllCategory() {
+    this.categoryservice.getAllCategory().subscribe(res => {
+      this.allCategoryData = res;
+    });
+  }
+
+  getCategoryData() {
+    this.categoryservice.getCategoryData(this.params.id).subscribe(res => {
+      this.categoryData = res;
+    });
   }
 
 }

@@ -10,8 +10,8 @@ import { DetailsComponent } from './details/details.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'category', component: CategoryComponent },
-  { path: 'listing', component: ListingComponent },
+  { path: 'category/:name/:id', component: CategoryComponent },
+  { path: 'listing/:cat/:subcat/:subcatid', component: ListingComponent },
   { path: 'details', component: DetailsComponent }
 
 ];
