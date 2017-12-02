@@ -32,6 +32,7 @@ export class CategoryComponent implements OnInit {
     // });
     this.activatedRoute.params.subscribe(params => {
       this.params = params;
+      // window.history.pushState('', params.name, '/' + params.name);
       this.getCategoryData();
       this.getAllCategory();
     });
