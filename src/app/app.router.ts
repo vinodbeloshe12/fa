@@ -11,8 +11,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'category/:name/:id', component: CategoryComponent },
-  { path: 'listing/:cat/:subcat/:subcatid', component: ListingComponent },
-  { path: 'details', component: DetailsComponent }
+  { path: 'listing/:cat/:catid/:subcat/:subcatid', component: ListingComponent },
+  { path: ':bid', component: DetailsComponent },
+  { path: 'detail/:bid', redirectTo: ':bid' }
 
 ];
 

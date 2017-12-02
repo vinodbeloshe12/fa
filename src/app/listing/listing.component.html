@@ -1,10 +1,13 @@
 <div class="container-fliud bgCat">
   <div class="container">
-    <div class="swiper-container bgCatHolder" [swiper]="config">
+    <div *ngIf="listingData && listingData.category" class="swiper-container bgCatHolder" [swiper]="config">
       <div class="swiper-wrapper">
-        <div *ngFor="let item of category" class="swiper-slide catItem" data-swiper-autoplay="3000">
-          <i class="fa {{item.icon}}" aria-hidden="true"></i>
-          <span class="catTitle"> {{item.name}}</span>
+        <div *ngFor="let item of listingData.category" [ngClass]="item.id==params.subcatid?'active':''" class="swiper-slide catItem"
+          data-swiper-autoplay="3000">
+          <a [routerLink]="['/listing',params.cat,params.catid,item.name,item.id]">
+            <i class="fa {{item.icon}}" aria-hidden="true"></i>
+            <span class="catTitle"> {{item.name}}</span>
+          </a>
         </div>
       </div>
 
@@ -24,9 +27,9 @@
             <a [routerLink]="['/home']">Home</a>
           </li>
           <li>
-            <a [routerLink]="['/category']">Category</a>
+            <a [routerLink]="['/category',params.cat,params.catid]">{{params.cat}}</a>
           </li>
-          <li>Selected Subategory</li>
+          <li>{{params.subcat}}</li>
         </ul>
       </div>
     </div>
@@ -42,178 +45,47 @@
         <img src="assets/images/add1.jpg" class="img-fluid" alt="">
       </div>
       <div class="col-md-9">
-        <div class="row recentItem">
-          <div class=" imgHolder">
-            <div class="verify">
-              <img src="assets/images/verify.jpg" alt="">
-            </div>
-            <img src="assets/images/2.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="row itemDetails">
-            <div class="col-md-9 address">
-              <h5>Sparks Design Solutions</h5>
-              <p> Shoo No.2, XYZ, Gavdevi Compound, Tembipada, Bhandup West, Mumbai - 40078.</p>
-
-              <div class="rating">8.5 Good</div>
-              <div class="growSocial">
-                <span>
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </span>
-                <a href="">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-google-plus" aria-hidden="true"></i>
-                </a>
+        <div *ngIf="listingData && listingData.listing">
+          <div *ngFor="let item of listingData.listing" class="row recentItem">
+            <div class=" imgHolder">
+              <div class="verify">
+                <img src="assets/images/verify.jpg" alt="">
               </div>
+              <!-- <img *ngIf="item.image" src="assets/images/2.jpg" class="img-fluid" alt=""> -->
+              <img src="assets/images/2.jpg" class="img-fluid" alt="">
             </div>
-            <div class="col-md-3 align-self-center">
-              <button class="viewBtn">Enquiry</button>
-              <button class="viewBtn">View More</button>
+            <div class="row itemDetails">
+              <div class="col-md-9 address">
+                <h5>{{item.buisnessname}}</h5>
+                <p> {{item.addline1}} {{item.addline2}}, {{item.city}} - {{item.pin}}. {{item.state}},{{item.country}}</p>
+
+                <div class="rating">8.5 Good</div>
+                <div class="growSocial">
+                  <span>
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                  </span>
+                  <a href="">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </a>
+                  <a href="">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </a>
+                  <a href="">
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3 align-self-center">
+                <button [routerLink]="['/detail',item.buisnessname]" class="viewBtn">Enquiry</button>
+                <button class="viewBtn">View More</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="row recentItem">
-          <div class=" imgHolder">
-            <div class="verify">
-              <img src="assets/images/verify.jpg" alt="">
-            </div>
-            <img src="assets/images/2.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="row itemDetails">
-            <div class="col-md-9 address">
-              <h5>Sparks Design Solutions</h5>
-              <p> Shoo No.2, XYZ, Gavdevi Compound, Tembipada, Bhandup West, Mumbai - 40078.</p>
-
-              <div class="rating">8.5 Good</div>
-              <div class="growSocial">
-                <span>
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </span>
-                <a href="">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-google-plus" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-            <div class="col-md-3 align-self-center">
-              <button class="viewBtn">Enquiry</button>
-              <button class="viewBtn">View More</button>
-            </div>
-          </div>
+        <div *ngIf="listingData && listingData.listing.length==0">
+          <h3>Data Not Found</h3>
         </div>
-        <div class="row recentItem">
-          <div class=" imgHolder">
-            <div class="verify">
-              <img src="assets/images/verify.jpg" alt="">
-            </div>
-            <img src="assets/images/2.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="row itemDetails">
-            <div class="col-md-9 address">
-              <h5>Sparks Design Solutions</h5>
-              <p> Shoo No.2, XYZ, Gavdevi Compound, Tembipada, Bhandup West, Mumbai - 40078.</p>
-
-              <div class="rating">8.5 Good</div>
-              <div class="growSocial">
-                <span>
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </span>
-                <a href="">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-google-plus" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-            <div class="col-md-3 align-self-center">
-              <button class="viewBtn">Enquiry</button>
-              <button class="viewBtn">View More</button>
-            </div>
-          </div>
-        </div>
-        <div class="row recentItem">
-          <div class=" imgHolder">
-            <div class="verify">
-              <img src="assets/images/verify.jpg" alt="">
-            </div>
-            <img src="assets/images/2.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="row itemDetails">
-            <div class="col-md-9 address">
-              <h5>Sparks Design Solutions</h5>
-              <p> Shoo No.2, XYZ, Gavdevi Compound, Tembipada, Bhandup West, Mumbai - 40078.</p>
-
-              <div class="rating">8.5 Good</div>
-              <div class="growSocial">
-                <span>
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </span>
-                <a href="">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-google-plus" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-            <div class="col-md-3 align-self-center">
-              <button class="viewBtn">Enquiry</button>
-              <button class="viewBtn">View More</button>
-            </div>
-          </div>
-        </div>
-        <div class="row recentItem">
-          <div class=" imgHolder">
-            <div class="verify">
-              <img src="assets/images/verify.jpg" alt="">
-            </div>
-            <img src="assets/images/2.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="row itemDetails">
-            <div class="col-md-9 address">
-              <h5>Sparks Design Solutions</h5>
-              <p> Shoo No.2, XYZ, Gavdevi Compound, Tembipada, Bhandup West, Mumbai - 40078.</p>
-
-              <div class="rating">8.5 Good</div>
-              <div class="growSocial">
-                <span>
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </span>
-                <a href="">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-google-plus" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-            <div class="col-md-3 align-self-center">
-              <button class="viewBtn">Enquiry</button>
-              <button class="viewBtn">View More</button>
-            </div>
-          </div>
-        </div>
-
 
       </div>
     </div>

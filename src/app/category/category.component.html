@@ -37,7 +37,7 @@
   <div class="container">
     <div *ngIf="categoryData && categoryData.length>0" class="row">
       <div *ngFor="let item of categoryData" class="col-md-3 categoryHolder">
-        <a [routerLink]="['/listing',params.name,item.name,item.id]">
+        <a [routerLink]="['/listing',params.name,params.id,item.name,item.id]">
           <img src="http://localhost/fa/uploads/{{item.image}}" alt="{{item.name}}">
           <div class="catLabel">{{item.name}}</div>
         </a>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { ListingService } from "../services/listing.service";
+
 
 @Component({
   selector: 'app-listing',
@@ -16,32 +19,22 @@ export class ListingComponent implements OnInit {
     effect: 'slide',  //"slide", "fade", "cube", "coverflow" or "flip"
     autoplay: false
   };
-  constructor() { }
+  params: any;
+  listingData: any;
+  constructor(public activatedRoute: ActivatedRoute, private listingservice: ListingService) { }
 
-
-  category = [
-    {
-      name: "Subcat1",
-      icon: "fa fa-user-md"
-    },
-    {
-      name: "Subcat2",
-      icon: "fa fa-building-o"
-    },
-    {
-      name: "Subcat3",
-      icon: "fa fa-user-md"
-    },
-    {
-      name: "Subcat4",
-      icon: "fa fa-user-md"
-    },
-    {
-      name: "Subcat6",
-      icon: "fa fa-user-md"
-    }
-  ]
   ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+      this.params = params;
+      this.getCategoryData();
+    });
+  }
+
+  getCategoryData() {
+    this.listingservice.getAllListing(this.params.catid, this.params.subcatid).subscribe(res => {
+      this.listingData = res;
+      console.log("datta", this.listingData);
+    });
   }
 
 }
