@@ -22,6 +22,7 @@ import { DetailsComponent } from './details/details.component';
 import { HomePageService } from './services/home.service';
 import { CategoryService } from "./services/category.service";
 import { ListingService } from "./services/listing.service";
+import { DetailService } from "./services/detail.service";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { ListingService } from "./services/listing.service";
     // BrowserAnimationsModule
   ],
   // exports: [GoTopButtonModule],
-  providers: [HomePageService, CategoryService, ListingService],
+  providers: [HomePageService, CategoryService, ListingService, DetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

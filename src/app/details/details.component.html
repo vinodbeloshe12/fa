@@ -2,17 +2,17 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <ul>
+        <ul *ngIf="detailsData">
           <li>
             <a [routerLink]="['/home']">Home</a>
           </li>
           <li>
-            <a [routerLink]="['/category']">Category</a>
+            <a [routerLink]="['/category']">{{detailsData.category}}</a>
           </li>
           <li>
-            <a [routerLink]="['/listing']">Subcategory</a>
+            <a [routerLink]="['/listing']">{{detailsData.subcategory}}</a>
           </li>
-          <li>Sparks Design Solutions</li>
+          <li>{{detailsData.buisnessname}}</li>
         </ul>
       </div>
     </div>

@@ -37,4 +37,9 @@ export class ListingComponent implements OnInit {
     });
   }
 
+  hyphenateUrlParams(str: string) {
+    // return str.replace(' ', '-');
+    return str.replace(/ /g, '')
+  }
+
 }
