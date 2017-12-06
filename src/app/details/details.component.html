@@ -7,12 +7,12 @@
             <a [routerLink]="['/home']">Home</a>
           </li>
           <li>
-            <a [routerLink]="['/category']">{{detailsData.category}}</a>
+            <a [routerLink]="['/category']">{{detailsData.details.category}}</a>
           </li>
           <li>
-            <a [routerLink]="['/listing']">{{detailsData.subcategory}}</a>
+            <a [routerLink]="['/listing']">{{detailsData.details.subcategory}}</a>
           </li>
-          <li>{{detailsData.buisnessname}}</li>
+          <li>{{detailsData.details.buisnessname}}</li>
         </ul>
       </div>
     </div>
@@ -22,13 +22,13 @@
 
 
 <div class="container-fluid pageBg">
-  <div class="container">
+  <div *ngIf="detailsData && detailsData.details" class="container">
     <div class="row">
       <div class="col-md-6">
-        <h1 class="title">Sparks Design Solutions</h1>
+        <h1 class="title">{{detailsData.details.buisnessname}}</h1>
         <div class="add">
           <i class="fa fa-map-marker" aria-hidden="true"></i>
-          Jungle Cubs Gym 90 Feet Road, Oop. Ganesh Temple Ghatkopar (East)
+          {{detailsData.details.addline1}},{{detailsData.details.addline2}},{{detailsData.details.city}}
         </div>
         <div class="call">
           <i class="fa fa-phone" aria-hidden="true"></i>
