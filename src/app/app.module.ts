@@ -7,7 +7,8 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { TabsModule } from "ngx-tabs";
-
+import { FormsModule } from '@angular/forms';
+import { CeiboShare } from 'ng2-social-share';
 
 //components
 import { AppComponent } from './app.component';
@@ -32,13 +33,15 @@ import { DetailService } from "./services/detail.service";
     FooterComponent,
     CategoryComponent,
     ListingComponent,
-    DetailsComponent
+    DetailsComponent,
+    CeiboShare
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SwiperModule,
     TabsModule,
+    FormsModule,
     AngularFontAwesomeModule,
     HttpModule
     // GoTopButtonModule,

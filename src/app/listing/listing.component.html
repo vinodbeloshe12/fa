@@ -1,4 +1,4 @@
-<div class="container-fliud bgCat">
+<!-- <div class="container-fliud bgCat">
   <div class="container">
     <div *ngIf="listingData && listingData.category" class="swiper-container bgCatHolder" [swiper]="config">
       <div class="swiper-wrapper">
@@ -16,7 +16,7 @@
       <div class="swiper-button-next"></div>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="container-fluid breadcrumb">
   <div class="container">
@@ -65,19 +65,20 @@
                     <i class="fa fa-share-alt" aria-hidden="true"></i>
                   </span>
                   <a href="">
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-facebook" ceiboShare [facebook]="{u: repoUrl}" aria-hidden="true"></i>
                   </a>
                   <a href="">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" ceiboShare [twitter]="{url:repoUrl, text:'findacross', hashtags:'list your buisness, social, fa'}"
+                      aria-hidden="true"></i>
                   </a>
                   <a href="">
-                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                    <i class="fa fa-google-plus" ceiboShare [googlePlus]="{url:repoUrl}" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
               <div class="col-md-3 align-self-center">
                 <button class="viewBtn">Enquiry</button>
-                <button [routerLink]="['/detail',item.buisnessname]" class="viewBtn">View More</button>
+                <button [routerLink]="['/detail',item.bid]" class="viewBtn">View More</button>
               </div>
             </div>
           </div>

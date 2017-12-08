@@ -10,7 +10,7 @@ import { HomePageService } from "../services/home.service";
 
 export class HomeComponent implements OnInit {
   homeData: any;
-  showCategoryTo: number = 2;
+  showCategoryTo: number = 8;
   config: any = {
     direction: 'horizontal',
     slidesPerView: '1',

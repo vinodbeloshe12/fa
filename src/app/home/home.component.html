@@ -25,8 +25,8 @@
     </div>
 
 
-    <div class="row moreCat">
-      <!-- <div *ngIf="homeData && homeData.category>8" class="row moreCat"> -->
+    <!-- <div class="row moreCat"> -->
+    <div *ngIf="homeData && homeData.category>8" class="row moreCat">
       <a (click)="showMoreCategory()"> More Categories</a>
     </div>
 
@@ -36,7 +36,7 @@
     <div class="row mt20">
       <div class="col-md-8">
         <tabset>
-          <tab *ngIf="homeData && homeData.recentlyAdded" title="Recently Added">
+          <tab *ngIf="homeData && homeData.recentlyAdded" title="Recently Listed">
             <div *ngFor="let item of homeData.recentlyAdded" class="row recentItem">
               <div class=" imgHolder">
                 <div class="verify">

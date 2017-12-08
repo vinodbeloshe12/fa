@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+
+import { CeiboShare } from 'ng2-social-share';
 import { ListingService } from "../services/listing.service";
 
 
@@ -9,6 +11,9 @@ import { ListingService } from "../services/listing.service";
   styleUrls: ['./listing.component.css']
 })
 export class ListingComponent implements OnInit {
+  public repoUrl = 'https://github.com/vinodbeloshe12';
+
+
   config: any = {
     direction: 'horizontal',
     slidesPerView: '8',
@@ -42,4 +47,8 @@ export class ListingComponent implements OnInit {
     return str.replace(/ /g, '')
   }
 
+}
+
+export declare class FacebookParams {
+  u: string;
 }

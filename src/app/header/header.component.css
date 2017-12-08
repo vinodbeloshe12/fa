@@ -1,4 +1,144 @@
-.header{
-    background-color:#133782;
-    padding:12px; 
+.header {
+  background-color: #133782;
+  padding: 12px;
+  position: fixed;
+  z-index: 99;
+}
+
+
+/* 
+input[type=text] {
+  width: 100px;
+  float: right;
+  padding: 3px 10px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+
+
+input[type=text]:focus {
+  width: 100%;
+}
+
+*/
+
+input {
+  font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #555860;
+}
+
+.main {
+  display: inline-flex;
+}
+
+.main i {
+  font-size: 26px;
+  color: #a0de48;
+  padding: 0px 13px;
+}
+
+.search {
+  position: relative;
+  margin: 0 auto;
+  width: 300px;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #0d40a5;
+  box-shadow: 0 0 2px #0d40a5;
+}
+
+.search input:focus+.results {
+  display: block
+}
+
+.search .results {
+  display: none;
+  position: absolute;
+  top: 38px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 0;
+  margin: 0;
+  border-radius: 3px;
+  background-color: #fdfdfd;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.search .results li {
+  display: block
+}
+
+.search .results li:first-child {
+  margin-top: -1px
+}
+
+.search .results li:first-child:before,
+.search .results li:first-child:after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px outset transparent;
+}
+
+.search .results li:first-child:before {
+  border-bottom: 5px solid #c4c7d7;
+  top: -11px;
+}
+
+.search .results li:first-child:after {
+  border-bottom: 5px solid #fdfdfd;
+  top: -10px;
+}
+
+.search .results li:first-child:hover:before,
+.search .results li:first-child:hover:after {
+  display: none
+}
+
+.search .results li:last-child {
+  margin-bottom: -1px
+}
+
+.search .results a {
+  display: block;
+  position: relative;
+  margin: 0 -1px;
+  padding: 6px 40px 6px 10px;
+  color: #808394;
+  font-weight: 500;
+  text-shadow: 0 1px #fff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.search .results a span {
+  font-weight: 200
+}
+
+.search .results a:before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -5px;
+}
+
+.search .results a:hover {
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+  border-color: #6981b1;
+  background-color: #6981b1;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
 }
