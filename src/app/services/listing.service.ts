@@ -11,9 +11,6 @@ export class ListingService {
         return this.http.get('http://localhost/fa/index.php/json/getAllListing?catid=' + catid + '&subcatid=' + subcatid).map(res => res.json());
     }
 
-    getLocation(lat, lang) {
-        return this.http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lang + '&sensor=false').map(res => res.json());
-    }
 
     search(searchTerm) {
         return this.http.get('http://localhost/fa/index.php/json/search?searchTerm=' + searchTerm).map(res => res.json());

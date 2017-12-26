@@ -1,8 +1,10 @@
 .header {
   background-color: #133782;
-  padding: 12px;
+  padding: 9px;
   position: fixed;
   z-index: 99;
+  height: 50px;
+  top: 0px;
 }
 
 
@@ -31,12 +33,6 @@ input {
 
 .main {
   display: inline-flex;
-}
-
-.main i {
-  font-size: 26px;
-  color: #a0de48;
-  padding: 0px 13px;
 }
 
 .search {
@@ -73,44 +69,10 @@ input {
   display: block
 }
 
-.search .results li:first-child {
-  margin-top: -1px
-}
-
-.search .results li:first-child:before,
-.search .results li:first-child:after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  left: 50%;
-  margin-left: -5px;
-  border: 5px outset transparent;
-}
-
-.search .results li:first-child:before {
-  border-bottom: 5px solid #c4c7d7;
-  top: -11px;
-}
-
-.search .results li:first-child:after {
-  border-bottom: 5px solid #fdfdfd;
-  top: -10px;
-}
-
-.search .results li:first-child:hover:before,
-.search .results li:first-child:hover:after {
-  display: none
-}
-
-.search .results li:last-child {
-  margin-bottom: -1px
-}
-
 .search .results a {
   display: block;
   position: relative;
+  cursor: pointer;
   margin: 0 -1px;
   padding: 6px 40px 6px 10px;
   color: #808394;
@@ -120,25 +82,38 @@ input {
   border-radius: 3px;
 }
 
-.search .results a span {
-  font-weight: 200
-}
-
-.search .results a:before {
-  content: '';
-  width: 18px;
-  height: 18px;
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  margin-top: -5px;
+.search .results a :hover {
+  text-decoration: none;
+  color: #fff;
 }
 
 .search .results a:hover {
+  background: #a0de4857;
   text-decoration: none;
+  /* color: #5507d3 */
+}
+
+.right {
+  padding: 3px 0px;
+  text-align: right;
+}
+
+.right i {
+  font-size: 22spx;
+  color: #a0de48;
+  padding: 0px 5px;
+}
+
+.right span {
+  margin-right: 10px;
   color: #fff;
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
-  border-color: #6981b1;
-  background-color: #6981b1;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.addBtn {
+  background: transparent;
+  border: 1px solid #ccc;
+  color: #fff;
+  margin-right: 10px;
+  cursor: pointer;
 }

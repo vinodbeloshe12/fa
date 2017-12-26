@@ -17,6 +17,7 @@ body {
 .pageBg {
   background-color: #f7f7f7;
   padding: 30px;
+  /* min-height: 76vh; */
 }
 
 .mt20 {
@@ -55,14 +56,12 @@ ul.nav-tabs li a.btn {
 /* breadcrub */
 
 .breadcrumb {
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding: 10px;
   list-style: none;
   width: 100%;
-  margin: 0px;
+  margin: 46px 0px 0px 0px;
   background-color: #fff;
 }
 

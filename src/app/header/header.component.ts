@@ -1,47 +1,83 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Injectable } from '@angular/core';
+import { Router } from "@angular/router";
 import { ListingService } from "../services/listing.service";
+import { nglocationService } from "../services/location.service";
+
+@Injectable()
+export class EmitterService {
+  /**
+    * The _emitters attribute is a EventEmitter used to braodcast selected city name.
+    *
+    * @attribute _emitters
+    * @type {any}
+    * @private
+    */
+  private static _emitters: {
+    /**
+        * The channel property is used to store selected city name.
+        *
+        * @property channel
+        * @type {string}
+        * @reference {EventEmitter}
+        *
+        */
+    [channel: string]: EventEmitter<any>
+  } = {};
+
+  /**
+     * Returns selected city name if property '_emitters[channel]' exixts
+     *
+     * @method get
+     * @static
+     * @params channel
+     * @return {Object} _emitters
+     */
+
+  static get(channel: string): EventEmitter<any> {
+    if (!this._emitters[channel])
+      this._emitters[channel] = new EventEmitter();
+    return this._emitters[channel];
+  }
+}
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  providers: [nglocationService]
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private listingservice: ListingService) { }
+  constructor(private router: Router, private listingservice: ListingService, private _ngLocation: nglocationService) {
+    _ngLocation.getCitydata();
+    EmitterService.get("selectedCity").subscribe(data => {
+      this.selectedCity = data;
+      localStorage.setItem('city', this.selectedCity);
+    });
+  }
   searchData: any;
   locationData: any;
   pos: any;
+
+
+  public selectedCity: string;
+
+
+
   ngOnInit() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-        this.pos = pos;
-
-        // infoWindow.setPosition(pos);
-        // infoWindow.setContent('Location found.');
-        // infoWindow.open(map);
-        // map.setCenter(pos);
-      }, function () {
-
-        this.getLocationAPI(this.pos);
-        // handleLocationError(true, infoWindow, map.getCenter());
-      });
-    } else {
-      // Browser doesn't support Geolocation
-      // handleLocationError(false, infoWindow, map.getCenter());
-    }
+    this.selectedCity = localStorage.getItem('city');
+    console.log("cityyyyy", this.selectedCity)
   }
 
-  // getLocationAPI(pos) {
-  //   console.log(":in location", this.pos, pos);
-  //   this.listingservice.getLocation(pos.lat, pos.lang).subscribe(res => {
-  //     this.locationData = res;
-  //     console.log("pos", this.locationData);
-  //   });
-  // }
+
+  changeRoute(id) {
+    console.log("innn", id);
+    this.router.navigate(['detail']);
+  }
+
+
+
 
   search(searchTerm) {
     this.listingservice.search(searchTerm).subscribe(res => {

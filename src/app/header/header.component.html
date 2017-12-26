@@ -6,30 +6,27 @@
           <img src="assets/images/logo.png" alt="Findacross">
         </a>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 right">
         <!-- <input class="form-control" type="text" name="search" placeholder="Search.."> -->
-        <section class="main">
-          <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <!-- <section class="main">
+         
           <form class="search" method="post" action="index.html">
             <input type="text" class="form-control" [(ngModel)]="searchTerms" (ngModelChange)="search(searchTerms)" name="q" placeholder="Search..."
             />
             <ul *ngIf="searchData" class="results">
               <li *ngFor="let item of searchData">
-                <a [routerLink]="['/detail',item.bid]">{{item.buisnessname}}
-                  <br />
-                  <span>{{item.city}},{{item.state}}</span>
+                <a href="index.html" (click)="changeRoute(item.bid)">{{item.buisnessname}}
+                  <br /> {{item.city}},{{item.state}}
                 </a>
               </li>
-              <!-- <li>
-                <a href="index.html">Search Result #2
-                  <br />
-                  <span>Description...</span>
-                </a>
-              </li> -->
-
             </ul>
           </form>
-        </section>
+        </section> -->
+        <!-- <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <span>{{selectedCity}}</span> -->
+        <button class="addBtn" [routerLink]="['/addlisting']"> + List Your Buisness</button>
+        <span [routerLink]="['/login']">
+          <i class="fa fa-user" aria-hidden="true"></i> Login</span>
       </div>
     </div>
   </div>

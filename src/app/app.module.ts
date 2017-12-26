@@ -24,6 +24,8 @@ import { HomePageService } from './services/home.service';
 import { CategoryService } from "./services/category.service";
 import { ListingService } from "./services/listing.service";
 import { DetailService } from "./services/detail.service";
+import { AddlistingComponent } from './addlisting/addlisting.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { DetailService } from "./services/detail.service";
     CategoryComponent,
     ListingComponent,
     DetailsComponent,
-    CeiboShare
+    CeiboShare,
+    AddlistingComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

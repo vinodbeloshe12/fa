@@ -1,0 +1,29 @@
+.addPageBg {
+  background-image: url('https://icon.foundation/images/icon_03.png');
+  background-color: #f7f7f7;
+  /* background-image: url('https://d13yacurqjgara.cloudfront.net/users/503378/screenshots/1957016/freebay.png'); */
+  background-position: center center;
+  background-repeat: repeat;
+}
+
+.pageBgAdd {
+  background-color: #f7f7f7d9;
+  padding: 30px;
+}
+
+.input-group,
+.form-control {
+  padding: 4px 10px;
+  border-radius: 0px;
+  font-size: 13px;
+}
+
+.errDiv {
+  padding: 10px 0px;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+  background: #ccc !important;
+  border: solid 1px #ddd;
+}

@@ -1,0 +1,16 @@
+.input-group,
+.form-control {
+  padding: 4px 10px;
+  border-radius: 0px;
+  font-size: 13px;
+}
+
+.errDiv {
+  padding: 10px 0px;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+  background: #ccc !important;
+  border: solid 1px #ddd;
+}
