@@ -1,0 +1,283 @@
+<div class="container-fluid breadcrumb">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul>
+          <li>
+            <a [routerLink]="['/home']">Home</a>
+          </li>
+
+          <li>Edit Profie</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid pageBg">
+  <div class="container">
+
+    <tabset>
+      <tab title="Buisness Details">
+        <form role="form" (ngSubmit)="saveData(listingData)" #addlisting="ngForm">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <h4>Please Enter Buisness Details</h4>
+              <hr>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group has-danger">
+                <label class="sr-only" for="bid">Buisness Url</label>
+                <!-- <label for="bid">Buisness Url</label> -->
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-link"></i>
+                  </div>
+                  <input type="text" pattern="^\S*$" #bid="ngModel" [(ngModel)]="listingData.bid" name="bid" class="form-control" id="bid"
+                    placeholder="findacross.com/businessname" required autofocus>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="bid.valid || bid.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!bid.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Buisness Url</div>
+
+                  <div class="errDiv" [hidden]="!bid.hasError('pattern')">
+                    <i class="fa fa-close"></i> Space not allowed in Url</div>
+                  <!--  -->
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group has-danger">
+                <label class="sr-only" for="bname">Buisness Name</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-buysellads"></i>
+                  </div>
+                  <input type="text" #bname="ngModel" [(ngModel)]="listingData.bname" name="bname" class="form-control" id="bname" placeholder="Business Name"
+                    required autofocus>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="bname.valid || bname.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!bname.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Buisness Name </div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group has-danger">
+                <label class="sr-only" for="email">E-Mail Address</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-at"></i>
+                  </div>
+                  <input type="text" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" [(ngModel)]="listingData.email"
+                    name="email" class="form-control" id="email" placeholder="you@example.com" required autofocus>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="email.valid || email.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!email.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Email Address </div>
+                  <div class="errDiv" [hidden]="!email.hasError('pattern')">
+                    <i class="fa fa-close"></i>Please Enter Valid Email Address</div>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="contact">Contact No</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-phone"></i>
+                  </div>
+                  <input type="text" pattern="[0-9]*" #contact="ngModel" minlength="8" maxlength="10" [(ngModel)]="listingData.contact" name="contact"
+                    class="form-control" id="contact" placeholder="Contact No">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="contact.valid || contact.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!contact.hasError('pattern')">
+                    <i class="fa fa-close"></i>Only numbers allowed</div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="mobile">Mobile No</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-mobile"></i>
+                  </div>
+                  <input type="text" pattern="[0-9]*" #mobile="ngModel" minlength="10" maxlength="10" [(ngModel)]="listingData.mobile" name="mobile"
+                    class="form-control" id="mobile" placeholder="Mobile No" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="mobile.valid || mobile.pristine" class="text-danger align-middle">
+                  <!-- <div class="errDiv" [hidden]="!mobile.hasError('minlength')">
+                        <i class="fa fa-close"></i> Mobile should be 10digit</div> -->
+                  <div class="errDiv" [hidden]="!mobile.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Mobile No</div>
+                  <div class="errDiv" [hidden]="!mobile.hasError('pattern')">
+                    <i class="fa fa-close"></i>Only numbers allowed</div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="add">Address</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-map-marker"></i>
+                  </div>
+                  <input type="text" #address="ngModel" [(ngModel)]="listingData.address" name="add" class="form-control" id="add" placeholder="Address"
+                    required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="address.valid || address.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!address.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Address </div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="landmark">Landmark</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-map-marker"></i>
+                  </div>
+                  <input type="text" #landmark="ngModel" [(ngModel)]="listingData.landmark" name="landmark" class="form-control" id="landmark"
+                    placeholder="Landmark" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="landmark.valid || landmark.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!landmark.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Landmark </div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="zip">Zip Code</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-map-marker"></i>
+                  </div>
+                  <input type="text" pattern="[0-9]*" minlength="6" maxlength="6" [(ngModel)]="listingData.zip" #zip="ngModel" name="zip" class="form-control"
+                    id="zip" placeholder="Zip Code" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="zip.valid || zip.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!zip.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Zip Code</div>
+                  <div class="errDiv" [hidden]="!zip.hasError('pattern')">
+                    <i class="fa fa-close"></i>Only numbers allowed</div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="city">City</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-map-marker"></i>
+                  </div>
+                  <input type="text" [(ngModel)]="listingData.city" disabled name="city" class="form-control" id="city" placeholder="City"
+                    required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span class="text-danger align-middle">
+                  <!-- Put password error message here -->
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center" style="padding-top: 1rem">
+
+            <div class="col-md-6">
+              <button [disabled]="!addlisting.form.valid" type="submit" class="btn btn-success">
+                <i class="fa fa-save"></i> Submit</button>
+              <span *ngIf="!addlisting.form.valid">Please Enter All Fields</span>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </form>
+
+
+
+      </tab>
+      <tab title="Account Setting">
+        tab222222222s2
+      </tab>
+
+    </tabset>
+
+
+
+
+
+
+
+
+  </div>
+</div>

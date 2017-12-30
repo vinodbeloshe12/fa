@@ -17,7 +17,7 @@
 
 <div class="container-fluid pageBg">
   <div class="container">
-    <form role="form" (ngSubmit)="saveData(loginData)" #addlisting="ngForm">
+    <form role="form" (ngSubmit)="login(loginData)" #addlisting="ngForm">
       <div class="row justify-content-center">
         <div class="col-md-4">
           <h4>Login</h4>
@@ -60,8 +60,8 @@
               <div class="input-group-addon" style="width: 2.6rem">
                 <i class="fa fa-key"></i>
               </div>
-              <input type="password" #password="ngModel" [(ngModel)]="loginData.password" name="password" class="form-control" id="password"
-                placeholder="password" required autofocus>
+              <input type="password" maxlength="15" #password="ngModel" [(ngModel)]="loginData.password" name="password" class="form-control"
+                id="password" placeholder="password" required autofocus>
             </div>
           </div>
         </div>

@@ -19,13 +19,14 @@ import { FooterComponent } from './footer/footer.component';
 import { CategoryComponent } from './category/category.component';
 import { ListingComponent } from './listing/listing.component';
 import { DetailsComponent } from './details/details.component';
+import { AddlistingComponent } from './addlisting/addlisting.component';
+import { LoginComponent } from './login/login.component';
+import { EditlistingComponent } from './editlisting/editlisting.component';
 //services
 import { HomePageService } from './services/home.service';
 import { CategoryService } from "./services/category.service";
 import { ListingService } from "./services/listing.service";
 import { DetailService } from "./services/detail.service";
-import { AddlistingComponent } from './addlisting/addlisting.component';
-import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { LoginComponent } from './login/login.component';
     DetailsComponent,
     CeiboShare,
     AddlistingComponent,
-    LoginComponent
+    LoginComponent,
+    EditlistingComponent
   ],
   imports: [
     BrowserModule,

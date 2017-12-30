@@ -7,6 +7,7 @@ import { ListingComponent } from './listing/listing.component';
 import { AddlistingComponent } from './addlisting/addlisting.component';
 import { DetailsComponent } from './details/details.component';
 import { LoginComponent } from './login/login.component';
+import { EditlistingComponent } from './editlisting/editlisting.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'category/:name/:id', component: CategoryComponent },
   { path: 'listing/:cat/:catid/:subcat/:subcatid', component: ListingComponent },
   { path: 'addlisting', component: AddlistingComponent },
+  { path: 'editprofile', component: EditlistingComponent },
   { path: 'login', component: LoginComponent },
   { path: ':bid', component: DetailsComponent },
   { path: 'detail/:bid', redirectTo: ':bid' }
