@@ -11,18 +11,17 @@ export class DetailsComponent implements OnInit {
 
   config: any = {
     direction: 'horizontal',
-    slidesPerView: '1',
+    slidesPerView: '5',
     observer: true,
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
     autoplayDisableOnInteraction: false,
-    effect: 'coverflow',  //"slide", "fade", "cube", "coverflow" or "flip"
-    autoplay: true
+    effect: 'slide',  //"slide", "fade", "cube", "coverflow" or "flip"
+    autoplay: false
   };
   params: any;
   detailsData: any;
+  listingImage;
 
   constructor(public activatedRoute: ActivatedRoute, private detailservice: DetailService) { }
 
@@ -33,11 +32,15 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-
+  changeImage(val) {
+    this.listingImage = val;
+  }
   getDetail() {
     this.detailservice.getDetail(this.params.bid).subscribe(res => {
       this.detailsData = res;
-      console.log("ddd", this.detailsData);
+      if (res && res.images.length > 0) {
+        this.listingImage = res.images[0].image;
+      }
     });
   }
 }

@@ -59,7 +59,7 @@ export class HeaderComponent implements OnInit {
   searchData: any;
   locationData: any;
   pos: any;
-
+  searchTerms = "";
 
   public selectedCity: string;
 
@@ -72,8 +72,8 @@ export class HeaderComponent implements OnInit {
 
 
   changeRoute(id) {
-    console.log("innn", id);
-    this.router.navigate(['detail']);
+    this.searchTerms = "";
+    this.router.navigate(['detail', id]);
   }
 
 

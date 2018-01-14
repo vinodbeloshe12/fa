@@ -151,3 +151,14 @@ form.contactUs textarea {
   background: #54a748;
   cursor: pointer;
 }
+
+.slideImg {
+  width: 95%;
+  margin: 10px 0px;
+  border: 2px solid #1f3781;
+  cursor: pointer;
+}
+
+.btnReview {
+  background-color: #1f3781;
+}

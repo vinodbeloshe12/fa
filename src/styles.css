@@ -187,6 +187,10 @@ ul.nav-tabs li a.btn {
   height: 22px;
 }
 
+.swiper-button-disabled {
+  opacity: 0 !important;
+}
+
 .bgCatHolder .swiper-button-prev.swiper-button-disabled,
 .bgCatHolder .swiper-button-next.swiper-button-disabled {
   opacity: 0;

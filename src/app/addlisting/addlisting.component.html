@@ -235,8 +235,7 @@
               <div class="input-group-addon" style="width: 2.6rem">
                 <i class="fa fa-map-marker"></i>
               </div>
-              <input type="text" [(ngModel)]="listingData.city" disabled name="city" class="form-control" id="city" placeholder="City"
-                required>
+              <input type="text" [(ngModel)]="listingData.city" name="city" class="form-control" id="city" placeholder="City" required>
             </div>
           </div>
         </div>
@@ -244,7 +243,7 @@
           <div class="form-control-feedback">
             <span class="text-danger align-middle">
               <!-- Put password error message here -->
-            </span>
+            </span>*
           </div>
         </div>
       </div>
@@ -254,7 +253,7 @@
         <div class="col-md-6">
           <button [disabled]="!addlisting.form.valid" type="submit" class="btn btn-success">
             <i class="fa fa-save"></i> Submit</button>
-          <span *ngIf="!addlisting.form.valid">Please Enter All Fields</span>
+          <!-- <span *ngIf="!addlisting.form.valid">Please Enter All Fields</span> -->
         </div>
         <div class="col-md-3"></div>
       </div>

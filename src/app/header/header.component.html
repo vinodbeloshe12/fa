@@ -8,20 +8,22 @@
       </div>
       <div class="col-md-6 right">
         <!-- <input class="form-control" type="text" name="search" placeholder="Search.."> -->
-        <!-- <section class="main">
-         
+        <section class="main">
+
           <form class="search" method="post" action="index.html">
             <input type="text" class="form-control" [(ngModel)]="searchTerms" (ngModelChange)="search(searchTerms)" name="q" placeholder="Search..."
             />
-            <ul *ngIf="searchData" class="results">
+            <ul *ngIf="searchData && searchTerms" class="results">
               <li *ngFor="let item of searchData">
-                <a href="index.html" (click)="changeRoute(item.bid)">{{item.buisnessname}}
-                  <br /> {{item.city}},{{item.state}}
+                <a (click)="changeRoute(item.bid)">
+                  <div class="title">{{item.buisnessname}}</div>
+                  <span *ngIf="item.city">{{item.city}}</span>
+                  <span *ngIf="item.state">, {{item.state}}</span>
                 </a>
               </li>
             </ul>
           </form>
-        </section> -->
+        </section>
         <!-- <i class="fa fa-map-marker" aria-hidden="true"></i>
         <span>{{selectedCity}}</span> -->
         <button class="addBtn" [routerLink]="['/addlisting']"> + List Your Buisness</button>
