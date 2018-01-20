@@ -136,7 +136,7 @@ input {
 
 .addBtn {
   background: transparent;
-  border: 1px solid #ccc;
+  border: none;
   color: #fff;
   margin-right: 10px;
   cursor: pointer;

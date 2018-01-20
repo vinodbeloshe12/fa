@@ -34,180 +34,68 @@
 
 
     <div class="row mt20">
-      <div class="col-md-8">
-        <tabset>
-          <tab *ngIf="homeData && homeData.recentlyAdded" title="Recently Listed">
-            <div *ngFor="let item of homeData.recentlyAdded" class="row recentItem">
-              <div class=" imgHolder">
-                <div class="verify">
-                  <img src="assets/images/verify.jpg" alt="">
-                </div>
-                <!-- <img *ngIf="item.image" src="assets/images/2.jpg" class="img-fluid" alt=""> -->
-                <img src="assets/images/2.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="row itemDetails">
-                <div class="col-md-9 address">
-                  <h5>{{item.buisnessname}}</h5>
-                  <p> {{item.addline1}} {{item.addline2}}, {{item.city}} - {{item.pin}}. {{item.state}},{{item.country}}</p>
+      <div class="col-md-8" *ngIf="homeData && homeData.recentlyAdded">
+        <!-- <tabset>
+          <tab *ngIf="homeData && homeData.recentlyAdded" title="Recently Listed"> -->
+        <div *ngFor="let item of homeData.recentlyAdded" class="row recentItem">
+          <div class=" imgHolder">
+            <div class="verify">
+              <img src="assets/images/verify.jpg" alt="">
+            </div>
+            <!-- <img *ngIf="item.image" src="assets/images/2.jpg" class="img-fluid" alt=""> -->
+            <img src="assets/images/2.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="row itemDetails">
+            <div class="col-md-9 address">
+              <h5>{{item.buisnessname}}</h5>
+              <p> {{item.addline1}} {{item.addline2}}, {{item.city}} - {{item.pin}}. {{item.state}},{{item.country}}</p>
 
-                  <div class="rating">8.5 Good</div>
-                  <div class="growSocial">
-                    <span>
-                      <i class="fa fa-share-alt" aria-hidden="true"></i>
-                    </span>
-                    <a href="">
-                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="">
-                      <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="">
-                      <i class="fa fa-google-plus" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-3 align-self-center">
-                  <button class="viewBtn">Enquiry</button>
-                  <button class="viewBtn">View More</button>
-                </div>
+              <div class="rating">8.5 Good</div>
+              <div class="growSocial">
+                <span>
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+                <a href="">
+                  <i class="fa fa-facebook" ceiboShare [facebook]="{u: repoUrl}" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-twitter" ceiboShare [twitter]="{url:repoUrl, text:'findacross', hashtags:'list your buisness, social, fa'}"
+                    aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-google-plus" ceiboShare [googlePlus]="{url:repoUrl}" aria-hidden="true"></i>
+                </a>
               </div>
             </div>
+            <div class="col-md-3 align-self-center">
+              <button class="viewBtn">Enquiry</button>
+              <button [routerLink]="['/detail',item.bid]" class="viewBtn">View More</button>
+            </div>
+          </div>
+        </div>
 
 
 
 
 
-          </tab>
+        <!-- </tab>
           <tab title="Most Viewed">
-            <div class="row recentItem">
-              <div class=" imgHolder">
-                <div class="verify">
-                  <img src="assets/images/verify.jpg" alt="">
-                </div>
-                <img src="assets/images/2.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="row itemDetails">
-                <div class="col-md-9 address">
-                  <h5>Sparks Design Solutions</h5>
-                  <p> Shoo No.2, XYZ, Gavdevi Compound, Tembipada, Bhandup West, Mumbai - 40078.</p>
 
-                  <div class="rating">8.5 Good</div>
-                  <div class="growSocial">
-                    <span>
-                      <i class="fa fa-share-alt" aria-hidden="true"></i>
-                    </span>
-                    <a href="">
-                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="">
-                      <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="">
-                      <i class="fa fa-google-plus" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-3 align-self-center">
-                  <button class="viewBtn">Enquiry</button>
-                  <button class="viewBtn">View More</button>
-                </div>
-              </div>
-            </div>
+          </tab> -->
 
-
-            <div class="row recentItem">
-              <div class=" imgHolder">
-                <div class="verify">
-                  <img src="assets/images/verify.jpg" alt="">
-                </div>
-                <img src="assets/images/1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="row itemDetails">
-                <div class="col-md-9 address">
-                  <h5>Okirana.com</h5>
-                  <p> Shoo No.2, XYZ, anc landmark, location, city, Maharashtra ,India.</p>
-                </div>
-                <div class="col-md-3 align-self-center">
-                  <button class="viewBtn">Enquiry</button>
-                  <button class="viewBtn">View More</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="row recentItem">
-              <div class=" imgHolder">
-                <div class="verify">
-                  <img src="assets/images/verify.jpg" alt="">
-                </div>
-                <img src="assets/images/2.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="row itemDetails">
-                <div class="col-md-9 address">
-                  <h5>Hariom Logistics</h5>
-                  <p> Shoo No.2, XYZ, Gavdevi Compound, Tembipada, Bhandup West, Mumbai - 40078.</p>
-                </div>
-                <div class="col-md-3 align-self-center">
-                  <button class="viewBtn">Enquiry</button>
-                  <button class="viewBtn">View More</button>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="row recentItem">
-              <div class=" imgHolder">
-                <div class="verify">
-                  <img src="assets/images/verify.jpg" alt="">
-                </div>
-                <img src="assets/images/1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="row itemDetails">
-                <div class="col-md-9 address">
-                  <h5>Sparks Design Solutions</h5>
-                  <p> Shoo No.2, XYZ, Gavdevi Compound, Tembipada, Bhandup West, Mumbai - 40078.</p>
-                </div>
-                <div class="col-md-3 align-self-center">
-                  <button class="viewBtn">Enquiry</button>
-                  <button class="viewBtn">View More</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="row recentItem">
-              <div class=" imgHolder">
-                <div class="verify">
-                  <img src="assets/images/verify.jpg" alt="">
-                </div>
-                <img src="assets/images/3.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="row itemDetails">
-                <div class="col-md-9 address">
-                  <h5>Sparks Design Solutions</h5>
-                  <p> Shoo No.2, XYZ, Gavdevi Compound, Tembipada, Bhandup West, Mumbai - 40078.</p>
-                </div>
-                <div class="col-md-3 align-self-center">
-                  <button class="viewBtn">Enquiry</button>
-                  <button class="viewBtn">View More</button>
-                </div>
-              </div>
-            </div>
-          </tab>
-
-        </tabset>
+        <!-- </tabset> -->
 
 
       </div>
       <div class="col-md-4">
-        <h4 class="title">Why choose our Services?</h4>
+        <h4 class="title" align="center">Grab your Space
+          <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+        </h4>
+        <div class="addSection">
+          <img src="assets/images/add.png" class="img-fluid" alt="">
+        </div>
         <ul class="services">
-          <li>
-            <a href="">
-              <i class="fa fa-check" aria-hidden="true"></i>
-              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-              100% verified listing
-              <span>No booking fees . No fake</span>
-            </a>
-          </li>
+
           <li>
             <a href="">
               <i class="fa fa-check" aria-hidden="true"></i>
@@ -235,8 +123,8 @@
         </ul>
 
 
-        <iframe id="vp1ot4n2" title="Video Player" width="100%" height="350" frameborder="0" src="https://s3.amazonaws.com/embed.animoto.com/play.html?w=swf/production/vp1&e=1511700031&f=ot4n2jCJLdWcoSDULVi0Vg&d=0&m=p&r=360p&volume=100&start_res=360p&i=m&asset_domain=s3-p.animoto.com&animoto_domain=animoto.com&options="
-          allowfullscreen></iframe>
+        <!-- <iframe id="vp1ot4n2" title="Video Player" width="100%" height="350" frameborder="0" src="https://s3.amazonaws.com/embed.animoto.com/play.html?w=swf/production/vp1&e=1511700031&f=ot4n2jCJLdWcoSDULVi0Vg&d=0&m=p&r=360p&volume=100&start_res=360p&i=m&asset_domain=s3-p.animoto.com&animoto_domain=animoto.com&options="
+          allowfullscreen></iframe> -->
       </div>
 
     </div>

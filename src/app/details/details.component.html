@@ -6,10 +6,10 @@
           <li>
             <a [routerLink]="['/home']">Home</a>
           </li>
-          <li>
+          <li *ngIf="detailsData && detailsData.details.category">
             <a [routerLink]="['/category',detailsData.details.category,detailsData.details.cid]">{{detailsData.details.category}}</a>
           </li>
-          <li>
+          <li *ngIf="detailsData && detailsData.details.subcategory">
             <a [routerLink]="['/listing',detailsData.details.category,detailsData.details.cid,detailsData.details.subcategory,detailsData.details.sid]">{{detailsData.details.subcategory}}</a>
           </li>
           <li>{{detailsData.details.buisnessname}}</li>
@@ -75,7 +75,7 @@
       </div>
     </div>
 
-    <div *ngIf="detailsData.details.type!=1" class="row">
+    <div *ngIf="detailsData.ads.length>0" class="row">
       <div class="col-md-12 addBanner">
         <img src="assets/images/add.jpg" class="img-fluid" alt="">
       </div>
@@ -95,7 +95,7 @@
     <div class="row">
       <div class="col-md-9">
         <tabset>
-          <tab title="About">
+          <tab *ngIf="detailsData.details.about" title="About">
             <div [innerHtml]="detailsData.details.about"></div>
           </tab>
           <tab title="Reviews & Rating">
@@ -109,8 +109,26 @@
                 <h6 class="verified">Verified</h6>
               </div>
               <div class="col-md-4">
-                <button class="viewBtn">Write review</button>
+                <button (click)="writeReview()" class="viewBtn">Write review</button>
               </div>
+            </div>
+            <div class="reviewBox active">
+              <!-- <div [ngClass]="openReview?'active':''" class="reviewBox"> -->
+              <form>
+                <div class="form-group col-md-6">
+                  <label for="exampleInputEmail1">Email*</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="exampleInputPassword1">Name*</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter name">
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="exampleTextarea">Your Review</label>
+                  <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary reviewSubmit">Submit</button>
+              </form>
             </div>
           </tab>
 

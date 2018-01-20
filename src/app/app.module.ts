@@ -10,6 +10,7 @@ import { TabsModule } from "ngx-tabs";
 import { FormsModule } from '@angular/forms';
 import { CeiboShare } from 'ng2-social-share';
 
+
 //components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -27,6 +28,7 @@ import { HomePageService } from './services/home.service';
 import { CategoryService } from "./services/category.service";
 import { ListingService } from "./services/listing.service";
 import { DetailService } from "./services/detail.service";
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { DetailService } from "./services/detail.service";
     CeiboShare,
     AddlistingComponent,
     LoginComponent,
-    EditlistingComponent
+    EditlistingComponent,
+    ThankyouComponent
   ],
   imports: [
     BrowserModule,

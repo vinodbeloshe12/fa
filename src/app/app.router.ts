@@ -8,6 +8,7 @@ import { AddlistingComponent } from './addlisting/addlisting.component';
 import { DetailsComponent } from './details/details.component';
 import { LoginComponent } from './login/login.component';
 import { EditlistingComponent } from './editlisting/editlisting.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'editprofile', component: EditlistingComponent },
   { path: 'login', component: LoginComponent },
   { path: ':bid', component: DetailsComponent },
-  { path: 'detail/:bid', redirectTo: ':bid' }
+  { path: 'detail/:bid', redirectTo: ':bid' },
+  { path: 'welcome/:bid', component: ThankyouComponent }
 
 ];
 

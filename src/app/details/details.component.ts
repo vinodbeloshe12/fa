@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
   params: any;
   detailsData: any;
   listingImage;
-
+  openReview = false;
   constructor(public activatedRoute: ActivatedRoute, private detailservice: DetailService) { }
 
   ngOnInit() {
@@ -30,6 +30,10 @@ export class DetailsComponent implements OnInit {
       this.params = params;
       this.getDetail();
     });
+  }
+
+  writeReview() {
+    this.openReview = !this.openReview;
   }
 
   changeImage(val) {
