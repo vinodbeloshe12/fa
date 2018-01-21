@@ -23,6 +23,7 @@ export class DetailsComponent implements OnInit {
   detailsData: any;
   listingImage;
   openReview = false;
+  reviewData = {};
   constructor(public activatedRoute: ActivatedRoute, private detailservice: DetailService) { }
 
   ngOnInit() {
@@ -35,7 +36,13 @@ export class DetailsComponent implements OnInit {
   writeReview() {
     this.openReview = !this.openReview;
   }
-
+  addReview(val) {
+    val.bid = this.params.bid;
+    this.detailservice.addReview(val).subscribe((res) => {
+      this.getDetail();
+    },
+      err => console.log(err));
+  }
   changeImage(val) {
     this.listingImage = val;
   }

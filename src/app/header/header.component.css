@@ -138,6 +138,6 @@ input {
   background: transparent;
   border: none;
   color: #fff;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   cursor: pointer;
 }

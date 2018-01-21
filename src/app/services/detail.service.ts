@@ -11,4 +11,10 @@ export class DetailService {
         return this.http.get('http://localhost/fa/index.php/json/getDetails?name=' + bid).map(res => res.json());
     }
 
+
+    addReview(data) {
+        var headers = new Headers();
+        headers.append('content-type', 'application/json');
+        return this.http.post('http://findacross.com/fa/index.php/json/addReview', data, { headers }).map(res => res.json());
+    }
 }

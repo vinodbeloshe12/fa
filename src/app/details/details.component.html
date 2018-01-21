@@ -112,24 +112,38 @@
                 <button (click)="writeReview()" class="viewBtn">Write review</button>
               </div>
             </div>
-            <div class="reviewBox active">
-              <!-- <div [ngClass]="openReview?'active':''" class="reviewBox"> -->
+            <div [ngClass]="openReview?'active':''" class="reviewBox">
               <form>
                 <div class="form-group col-md-6">
                   <label for="exampleInputEmail1">Email*</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <input [(ngModel)]="reviewData.email" type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="exampleInputPassword1">Name*</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter name">
+                  <input [(ngModel)]="reviewData.name" type="text" name="name" class="form-control" id="exampleInputPassword1" placeholder="Enter name">
+                </div>
+                <div class="form-group col-md-6">
+
                 </div>
                 <div class="form-group col-md-12">
                   <label for="exampleTextarea">Your Review</label>
-                  <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                  <textarea [(ngModel)]="reviewData.review" name="review" class="form-control" id="exampleTextarea" rows="3"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary reviewSubmit">Submit</button>
+                <button (click)="addReview(reviewData)" type="submit" class="btn btn-primary reviewSubmit">Submit</button>
               </form>
             </div>
+
+            <ul class="review">
+              <li *ngFor="let data of detailsData.rating">
+                <span>Rating : {{data.rating}}</span>
+                <span class="date">{{data.date|date:'MMM d, y'}}</span>
+                <!-- <span class="date">{{data.date|date:'MMM d, y h:mm a'}}</span> -->
+                <div>
+                  <span class="name">{{data.name}}</span>({{data.email}})</div>
+                <p>{{data.review}}</p>
+              </li>
+            </ul>
           </tab>
 
         </tabset>

@@ -166,18 +166,42 @@ form.contactUs textarea {
 .reviewBox {
   background: #fff;
   width: 100%;
-  margin: 25px 0px;
+  margin: 20px 0px;
   height: 0px;
   transition: all 0.5s;
+  opacity: 0;
 }
 
 .reviewBox.active {
-  height: 300px;
+  height: 335px;
   padding: 15px;
+  opacity: 1;
 }
 
 .reviewSubmit {
   background: #22347f;
   border: 1px solid #0d1b55;
   margin-left: 15px;
+}
+
+ul.review {
+  list-style: none;
+  padding: 0px;
+}
+
+ul.review li {
+  background: #fff;
+  padding: 10px 15px;
+  margin: 10px 0px;
+  border-radius: 4px;
+}
+
+.date {
+  float: right;
+  font-weight: bold;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: bold;
 }

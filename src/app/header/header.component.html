@@ -11,8 +11,8 @@
         <section class="main">
 
           <form class="search" method="post" action="index.html">
-            <input type="text" class="form-control" [(ngModel)]="searchTerms" (ngModelChange)="search(searchTerms)" name="q" placeholder="Search..."
-            />
+            <input type="text" class="form-control" autocomplete="off" [(ngModel)]="searchTerms" (ngModelChange)="search(searchTerms)"
+              name="q" placeholder="Search..." />
             <ul *ngIf="searchData && searchTerms" class="results">
               <li *ngFor="let item of searchData">
                 <a (click)="changeRoute(item.bid)">
@@ -27,8 +27,8 @@
         <!-- <i class="fa fa-map-marker" aria-hidden="true"></i>
         <span>{{selectedCity}}</span> -->
         <button class="addBtn" [routerLink]="['/addlisting']"> + List Your Buisness</button>
-        <span [routerLink]="['/login']">
-          <i class="fa fa-user" aria-hidden="true"></i> Login</span>
+        <button class="addBtn" [routerLink]="['/login']">
+          <i class="fa fa-user" aria-hidden="true"></i> Login</button>
       </div>
     </div>
   </div>

@@ -9,8 +9,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { TabsModule } from "ngx-tabs";
 import { FormsModule } from '@angular/forms';
 import { CeiboShare } from 'ng2-social-share';
-
-
 //components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -23,12 +21,12 @@ import { DetailsComponent } from './details/details.component';
 import { AddlistingComponent } from './addlisting/addlisting.component';
 import { LoginComponent } from './login/login.component';
 import { EditlistingComponent } from './editlisting/editlisting.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 //services
 import { HomePageService } from './services/home.service';
 import { CategoryService } from "./services/category.service";
 import { ListingService } from "./services/listing.service";
 import { DetailService } from "./services/detail.service";
-import { ThankyouComponent } from './thankyou/thankyou.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +50,7 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
     TabsModule,
     FormsModule,
     AngularFontAwesomeModule,
-    HttpModule
+    HttpModule,
     // GoTopButtonModule,
     // BrowserAnimationsModule
   ],
