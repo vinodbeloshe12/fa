@@ -8,11 +8,11 @@ export class ListingService {
     constructor(private http: Http) { }
 
     getAllListing(catid, subcatid) {
-        return this.http.get('http://localhost/fa/index.php/json/getAllListing?catid=' + catid + '&subcatid=' + subcatid).map(res => res.json());
+        return this.http.get('http://findacross.com/fa/index.php/json/getAllListing?catid=' + catid + '&subcatid=' + subcatid).map(res => res.json());
     }
 
     search(searchTerm) {
-        return this.http.get('http://localhost/fa/index.php/json/search?searchTerm=' + searchTerm).map(res => res.json());
+        return this.http.get('http://findacross.com/fa/index.php/json/search?searchTerm=' + searchTerm).map(res => res.json());
     }
 
 

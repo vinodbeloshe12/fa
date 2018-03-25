@@ -19,6 +19,7 @@ export class DetailsComponent implements OnInit {
     effect: 'slide',  //"slide", "fade", "cube", "coverflow" or "flip"
     autoplay: false
   };
+  defaultrating = 1;
   params: any;
   detailsData: any;
   listingImage;

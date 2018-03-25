@@ -6,13 +6,10 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class CategoryService {
     constructor(private http: Http) { }
-
-
-
     getAllCategory() {
-        return this.http.get('http://localhost/fa/index.php/json/getallcategory').map(res => res.json());
+        return this.http.get('http://findacross.com/fa/index.php/json/getallcategory').map(res => res.json());
     }
     getCategoryData(id) {
-        return this.http.get('http://localhost/fa/index.php/json/getAllCategoryById?id=' + id).map(res => res.json());
+        return this.http.get('http://findacross.com/fa/index.php/json/getAllCategoryById?id=' + id).map(res => res.json());
     }
 }

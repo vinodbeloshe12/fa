@@ -10,7 +10,7 @@ export class HomePageService {
     }
 
     getHomeData() {
-        return this._http.get('http://localhost/fa/index.php/json/gethomedata').map(res => res.json());
+        return this._http.get('http://findacross.com/fa/index.php/json/gethomedata').map(res => res.json());
     }
 
 

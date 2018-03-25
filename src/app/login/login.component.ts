@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { LoginService } from "../services/login.service";
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router'
 })
 export class LoginComponent implements OnInit {
   loginData: any = {};
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginService: LoginService) { }
 
   ngOnInit() {
   }
@@ -17,6 +18,12 @@ export class LoginComponent implements OnInit {
 
   login(data) {
     console.log("login data", data);
-    this.router.navigate(['editprofile']);
+    this.loginService.login(data).subscribe((res) => {
+      if (res == true) {
+        this.router.navigate(['editprofile']);
+      } else {
+        console.log("err");
+      }
+    });
   }
 }

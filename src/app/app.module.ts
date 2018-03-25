@@ -9,6 +9,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { TabsModule } from "ngx-tabs";
 import { FormsModule } from '@angular/forms';
 import { CeiboShare } from 'ng2-social-share';
+import { BarRatingModule } from "ngx-bar-rating";
+
 //components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -27,6 +29,7 @@ import { HomePageService } from './services/home.service';
 import { CategoryService } from "./services/category.service";
 import { ListingService } from "./services/listing.service";
 import { DetailService } from "./services/detail.service";
+import { LoginService } from "./services/login.service";
 
 @NgModule({
   declarations: [
@@ -51,11 +54,12 @@ import { DetailService } from "./services/detail.service";
     FormsModule,
     AngularFontAwesomeModule,
     HttpModule,
+    BarRatingModule,
     // GoTopButtonModule,
     // BrowserAnimationsModule
   ],
   // exports: [GoTopButtonModule],
-  providers: [HomePageService, CategoryService, ListingService, DetailService],
+  providers: [HomePageService, CategoryService, ListingService, DetailService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

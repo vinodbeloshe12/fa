@@ -8,7 +8,7 @@ export class DetailService {
     constructor(private http: Http) { }
 
     getDetail(bid) {
-        return this.http.get('http://localhost/fa/index.php/json/getDetails?name=' + bid).map(res => res.json());
+        return this.http.get('http://findacross.com/fa/index.php/json/getDetails?name=' + bid).map(res => res.json());
     }
 
 

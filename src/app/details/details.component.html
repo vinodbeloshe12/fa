@@ -61,12 +61,12 @@
       </div>
       <div class="col-md-6">
         <img *ngIf="!listingImage" src="assets/images/bglogo1.png" class="img-fluid" alt="">
-        <img *ngIf="listingImage" src="http://localhost/fa/uploads/{{listingImage}}" class="img-fluid" alt="">
+        <img *ngIf="listingImage" src="http://findacross.com/fa/uploads/{{listingImage}}" class="img-fluid" alt="">
 
         <div *ngIf="listingImage" class="swiper-container" [swiper]="config">
           <div class="swiper-wrapper">
             <div style="width:100%" *ngFor="let item of  detailsData.images" class="swiper-slide" data-swiper-autoplay="3000">
-              <img (click)="changeImage(item.image)" src="http://localhost/fa/uploads/{{item.image}}" alt="" class="w3-animate-opacity slideImg">
+              <img (click)="changeImage(item.image)" src="http://findacross.com/fa/uploads/{{item.image}}" alt="" class="w3-animate-opacity slideImg">
             </div>
           </div>
           <div class="swiper-button-prev"></div>
@@ -124,7 +124,10 @@
                   <input [(ngModel)]="reviewData.name" type="text" name="name" class="form-control" id="exampleInputPassword1" placeholder="Enter name">
                 </div>
                 <div class="form-group col-md-6">
-
+                  <label for="rating1">Rating*</label>
+                  <!-- <input [(ngModel)]="reviewData.rating" type="text" name="rating" class="form-control" id="rating1" placeholder="Enter name"> -->
+                  <bar-rating [(rate)]="defaultrating" name="rating" [max]="4" [(ngModel)]="reviewData.rating" [theme]="'movie'" [showText]="true"
+                    [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"></bar-rating>
                 </div>
                 <div class="form-group col-md-12">
                   <label for="exampleTextarea">Your Review</label>
@@ -138,6 +141,8 @@
               <li *ngFor="let data of detailsData.rating">
                 <span>Rating : {{data.rating}}</span>
                 <span class="date">{{data.date|date:'MMM d, y'}}</span>
+                <bar-rating [(rate)]="data.rating" [max]="4" [readOnly]="true" [(ngModel)]="data.rating" [theme]="'movie'" [showText]="true"
+                  [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"></bar-rating>
                 <!-- <span class="date">{{data.date|date:'MMM d, y h:mm a'}}</span> -->
                 <div>
                   <span class="name">{{data.name}}</span>({{data.email}})</div>

@@ -2,7 +2,7 @@
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~swiper/dist/css/swiper.min.css';
-
+@import '~ngx-bar-rating/themes/br-movie-theme.css';
 /* @import "https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css"; */
 
 body {
@@ -55,7 +55,6 @@ ul.nav-tabs li a.btn {
   /* font-weight: bold; */
   padding: 5px 10px 3px 10px;
 }
-
 
 /* breadcrub */
 
@@ -112,7 +111,6 @@ ul.nav-tabs li a.btn {
   right: -25px;
 }
 
-
 /* homecat */
 
 .categoryHolder {
@@ -166,7 +164,6 @@ ul.nav-tabs li a.btn {
   font-size: 20px;
   text-transform: capitalize;
 }
-
 
 /* category */
 
@@ -237,7 +234,6 @@ ul.nav-tabs li a.btn {
   color: #262626;
   cursor: pointer;
 }
-
 
 /* listing & home recent */
 

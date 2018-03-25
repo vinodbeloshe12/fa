@@ -1,7 +1,7 @@
 <div *ngIf="homeData && homeData.slider" class="swiper-container" [swiper]="config">
   <div class="swiper-wrapper">
     <div style="width:100%" *ngFor="let item of  homeData.slider" class="swiper-slide" data-swiper-autoplay="3000">
-      <img src="http://localhost/fa/uploads/{{item.image}}" alt="" class="w3-animate-opacity">
+      <img src="http://findacross.com/fa/uploads/{{item.image}}" alt="" class="w3-animate-opacity">
     </div>
   </div>
   <div class="swiper-scrollbar"></div>
@@ -16,7 +16,7 @@
     <div *ngIf="homeData && homeData.category" class="row">
       <div *ngFor="let item of homeData.category  | slice:0:showCategoryTo;" class="col-md-3 categoryHolder">
         <a [routerLink]="['/category',item.name,item.id]">
-          <img src="http://localhost/fa/uploads/{{item.image}}" alt="{{item.name}}">
+          <img src="http://findacross.com/fa/uploads/{{item.image}}" alt="{{item.name}}">
           <div class="catLabel">{{item.name}}</div>
         </a>
       </div>
