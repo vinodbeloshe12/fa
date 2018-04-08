@@ -9,7 +9,7 @@ export class LoginService {
     login(data) {
         var headers = new Headers();
         headers.append('content-type', 'application/json');
-        return this.http.post('http://findacross.com/fa/index.php/json/login', data, { headers }).map(res => res.json());
+        return this.http.post('http://www.findacross.com/admin/index.php/json/login', data, { headers }).map(res => res.json());
     }
 
 }

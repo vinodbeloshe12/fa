@@ -8,13 +8,22 @@ export class DetailService {
     constructor(private http: Http) { }
 
     getDetail(bid) {
-        return this.http.get('http://findacross.com/fa/index.php/json/getDetails?name=' + bid).map(res => res.json());
+        return this.http.get('http://www.findacross.com/admin/index.php/json/getDetails?name=' + bid).map(res => res.json());
     }
 
 
+    getFormUrlEncoded(toConvert) {
+        const formBody = [];
+        for (const property in toConvert) {
+            const encodedKey = encodeURIComponent(property);
+            const encodedValue = encodeURIComponent(toConvert[property]);
+            formBody.push(encodedKey + '=' + encodedValue);
+        }
+        return formBody.join('&');
+    }
+
     addReview(data) {
-        var headers = new Headers();
-        headers.append('content-type', 'application/json');
-        return this.http.post('http://findacross.com/fa/index.php/json/addReview', data, { headers }).map(res => res.json());
+        let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        return this.http.post('http://www.findacross.com/admin/index.php/json/addReview', this.getFormUrlEncoded(data), { headers }).map(res => res.json());
     }
 }

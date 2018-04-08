@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
     autoplayDisableOnInteraction: false,
-    effect: 'coverflow',  //"slide", "fade", "cube", "coverflow" or "flip"
+    effect: 'fade',  //"slide", "fade", "cube", "coverflow" or "flip"
     autoplay: true
   };
 

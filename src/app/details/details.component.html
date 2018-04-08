@@ -61,12 +61,12 @@
       </div>
       <div class="col-md-6">
         <img *ngIf="!listingImage" src="assets/images/bglogo1.png" class="img-fluid" alt="">
-        <img *ngIf="listingImage" src="http://findacross.com/fa/uploads/{{listingImage}}" class="img-fluid" alt="">
+        <img *ngIf="listingImage" src="http://admin.findacross.com/uploads/{{listingImage}}" class="img-fluid" alt="">
 
         <div *ngIf="listingImage" class="swiper-container" [swiper]="config">
           <div class="swiper-wrapper">
             <div style="width:100%" *ngFor="let item of  detailsData.images" class="swiper-slide" data-swiper-autoplay="3000">
-              <img (click)="changeImage(item.image)" src="http://findacross.com/fa/uploads/{{item.image}}" alt="" class="w3-animate-opacity slideImg">
+              <img (click)="changeImage(item.image)" src="http://admin.findacross.com/uploads/{{item.image}}" alt="" class="w3-animate-opacity slideImg">
             </div>
           </div>
           <div class="swiper-button-prev"></div>

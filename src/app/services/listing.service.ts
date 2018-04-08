@@ -7,19 +7,28 @@ import 'rxjs/add/operator/map';
 export class ListingService {
     constructor(private http: Http) { }
 
+
+    getFormUrlEncoded(toConvert) {
+        const formBody = [];
+        for (const property in toConvert) {
+            const encodedKey = encodeURIComponent(property);
+            const encodedValue = encodeURIComponent(toConvert[property]);
+            formBody.push(encodedKey + '=' + encodedValue);
+        }
+        return formBody.join('&');
+    }
+
     getAllListing(catid, subcatid) {
-        return this.http.get('http://findacross.com/fa/index.php/json/getAllListing?catid=' + catid + '&subcatid=' + subcatid).map(res => res.json());
+        return this.http.get('http://www.findacross.com/admin/index.php/json/getAllListing?catid=' + catid + '&subcatid=' + subcatid).map(res => res.json());
     }
 
     search(searchTerm) {
-        return this.http.get('http://findacross.com/fa/index.php/json/search?searchTerm=' + searchTerm).map(res => res.json());
+        return this.http.get('http://www.findacross.com/admin/index.php/json/search?searchTerm=' + searchTerm).map(res => res.json());
     }
 
 
     addListing(data) {
-        var headers = new Headers();
-        headers.append('content-type', 'application/json');
-        // headers.append('enctype', 'multipart/form-data');
-        return this.http.post('http://findacross.com/fa/index.php/json/addListing', data, { headers }).map(res => res.json());
+        let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        return this.http.post('http://www.findacross.com/admin/index.php/json/addListing', this.getFormUrlEncoded(data), { headers }).map(res => res.json());
     }
 }
