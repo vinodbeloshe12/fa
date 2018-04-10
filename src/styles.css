@@ -28,6 +28,10 @@ button:focus {
   margin-top: 20px;
 }
 
+.mt40 {
+  margin-top: 40px;
+}
+
 ul.nav-tabs {
   border-bottom: 3px solid #D4D4D4 !important;
   margin-bottom: 20px;

@@ -41,6 +41,8 @@
         </div>
         <div class="col-md-3">
           <div class="form-control-feedback">
+            <div class="errDiv text-danger align-middle" *ngIf="bnameErr">
+              <i class="fa fa-close"></i> {{bnameErr}} </div>
             <span [hidden]="bid.valid || bid.pristine" class="text-danger align-middle">
               <div class="errDiv" [hidden]="!bid.hasError('required')">
                 <i class="fa fa-close"></i> Please Enter Buisness Url</div>
@@ -71,6 +73,7 @@
             <span [hidden]="bname.valid || bname.pristine" class="text-danger align-middle">
               <div class="errDiv" [hidden]="!bname.hasError('required')">
                 <i class="fa fa-close"></i> Please Enter Buisness Name </div>
+
             </span>
           </div>
         </div>

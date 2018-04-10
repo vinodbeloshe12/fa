@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class AddlistingComponent implements OnInit {
   city: string;
   listingData: any = {};
+  bnameErr = "";
   constructor(private listingService: ListingService, private router: Router) { }
 
   ngOnInit() {
@@ -24,6 +25,8 @@ export class AddlistingComponent implements OnInit {
         console.log("res", res);
         // this.listingData = {};
         this.router.navigate(['/welcome', res.bid]);
+      } else {
+        this.bnameErr = res.message;
       }
     }, error => console.log("error"));
   }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -29,6 +29,8 @@ export class ListingService {
 
     addListing(data) {
         let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        let options = new RequestOptions({ headers: headers, withCredentials: true });
+        // return this.http.post('http://localhost/finda/index.php/json/addListing', this.getFormUrlEncoded(data), { headers }).map(res => res.json());
         return this.http.post('http://www.findacross.com/admin/index.php/json/addListing', this.getFormUrlEncoded(data), { headers }).map(res => res.json());
     }
 }
