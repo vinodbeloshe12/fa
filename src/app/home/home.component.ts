@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomePageService } from "../services/home.service";
-
+import { AppConst } from "../app.constants"
 
 @Component({
   selector: 'app-home',
@@ -10,6 +10,7 @@ import { HomePageService } from "../services/home.service";
 
 export class HomeComponent implements OnInit {
   homeData: any;
+  imgUrl = AppConst.imgUrl;
   showCategoryTo: number = 12;
   config: any = {
     direction: 'horizontal',

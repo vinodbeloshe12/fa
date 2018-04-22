@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { GoTopButtonModule } from 'ng2-go-top-button';
 import { Http, HttpModule, BrowserXhr } from '@angular/http';
 import { SwiperModule } from 'ngx-swiper-wrapper';
@@ -10,6 +10,7 @@ import { TabsModule } from "ngx-tabs";
 import { FormsModule } from '@angular/forms';
 import { CeiboShare } from 'ng2-social-share';
 import { BarRatingModule } from "ngx-bar-rating";
+import { NgProgressModule, NgProgressBrowserXhr } from 'ngx-progressbar';
 
 //components
 import { AppComponent } from './app.component';
@@ -48,6 +49,7 @@ import { LoginService } from "./services/login.service";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     SwiperModule,
     TabsModule,
@@ -55,11 +57,10 @@ import { LoginService } from "./services/login.service";
     AngularFontAwesomeModule,
     HttpModule,
     BarRatingModule,
-    // GoTopButtonModule,
-    // BrowserAnimationsModule
+    NgProgressModule,
   ],
   // exports: [GoTopButtonModule],
-  providers: [HomePageService, CategoryService, ListingService, DetailService, LoginService],
+  providers: [HomePageService, CategoryService, ListingService, DetailService, LoginService, { provide: BrowserXhr, useClass: NgProgressBrowserXhr }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
