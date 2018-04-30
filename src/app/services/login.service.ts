@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { AppConst } from '../app.constants';
 
 @Injectable()
 export class LoginService {
@@ -9,7 +10,7 @@ export class LoginService {
     login(data) {
         var headers = new Headers();
         headers.append('content-type', 'application/json');
-        return this.http.post('http://www.findacross.com/admin/index.php/json/login', data, { headers }).map(res => res.json());
+        return this.http.post(AppConst.apiUrl + 'login', data, { headers }).map(res => res.json());
     }
 
 }

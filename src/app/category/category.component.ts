@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { CategoryService } from "../services/category.service";
+import { AppConst } from "../app.constants";
 
 
 @Component({
@@ -9,7 +10,7 @@ import { CategoryService } from "../services/category.service";
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-
+  loaderImg = AppConst.loaderImage;
   params: any;
   categoryData: any;
   allCategoryData: any;

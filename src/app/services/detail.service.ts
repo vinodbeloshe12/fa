@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { AppConst } from '../app.constants';
 
 @Injectable()
 export class DetailService {
     constructor(private http: Http) { }
 
     getDetail(bid) {
-        return this.http.get('http://www.findacross.com/admin/index.php/json/getDetails?name=' + bid).map(res => res.json());
+        return this.http.get(AppConst.apiUrl + 'getDetails?name=' + bid).map(res => res.json());
     }
 
 
@@ -24,6 +25,6 @@ export class DetailService {
 
     addReview(data) {
         let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
-        return this.http.post('http://www.findacross.com/admin/index.php/json/addReview', this.getFormUrlEncoded(data), { headers }).map(res => res.json());
+        return this.http.post(AppConst.apiUrl + 'addReview', this.getFormUrlEncoded(data), { headers }).map(res => res.json());
     }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { AppConst } from '../app.constants';
 
 @Injectable()
 export class HomePageService {
@@ -10,7 +11,7 @@ export class HomePageService {
     }
 
     getHomeData() {
-        return this._http.get('http://www.findacross.com/admin/index.php/json/gethomedata').map(res => res.json());
+        return this._http.get(AppConst.apiUrl + 'gethomedata').map(res => res.json());
     }
 
 

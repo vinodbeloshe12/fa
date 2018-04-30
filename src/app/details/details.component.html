@@ -76,8 +76,9 @@
     </div>
 
     <div *ngIf="detailsData.ads.length>0" class="row">
-      <div class="col-md-12 addBanner">
-        <img src="assets/images/add.jpg" class="img-fluid" alt="">
+      <div class="col-md-12 addBanner" *ngFor="let item of detailsData.ads">
+        <!-- <img src="assets/images/add.jpg" class="img-fluid" alt=""> -->
+        <img src="http://admin.findacross.com/uploads/{{item.image}}" class="img-fluid" alt="">
       </div>
     </div>
 

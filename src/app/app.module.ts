@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { CeiboShare } from 'ng2-social-share';
 import { BarRatingModule } from "ngx-bar-rating";
 import { NgProgressModule, NgProgressBrowserXhr } from 'ngx-progressbar';
+import { LazyLoadImageModule } from 'ng2-lazyload-image';
 
 //components
 import { AppComponent } from './app.component';
@@ -58,6 +59,7 @@ import { LoginService } from "./services/login.service";
     HttpModule,
     BarRatingModule,
     NgProgressModule,
+    LazyLoadImageModule,
   ],
   // exports: [GoTopButtonModule],
   providers: [HomePageService, CategoryService, ListingService, DetailService, LoginService, { provide: BrowserXhr, useClass: NgProgressBrowserXhr }],
