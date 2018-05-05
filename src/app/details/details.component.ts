@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { DetailService } from "../services/detail.service";
+import { AppConst } from "../app.constants";
 
 @Component({
   selector: 'app-details',
@@ -8,7 +9,7 @@ import { DetailService } from "../services/detail.service";
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-
+  imgUrl = AppConst.imgUrl;
   config: any = {
     direction: 'horizontal',
     slidesPerView: '5',
@@ -25,6 +26,7 @@ export class DetailsComponent implements OnInit {
   listingImage;
   openReview = false;
   reviewData = {};
+  services: any = [];
   constructor(public activatedRoute: ActivatedRoute, private detailservice: DetailService) { }
 
   ngOnInit() {
@@ -52,6 +54,7 @@ export class DetailsComponent implements OnInit {
       this.detailsData = res;
       if (res && res.images.length > 0) {
         this.listingImage = res.images[0].image;
+        this.services = this.detailsData.details.services ? this.detailsData.details.services.split(',') : [];
       }
     });
   }

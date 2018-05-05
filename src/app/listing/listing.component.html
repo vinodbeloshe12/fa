@@ -42,9 +42,22 @@
     <div class="row">
 
       <div class="col-md-3">
-        <img src="assets/images/add1.jpg" class="img-fluid" alt="">
+        <div *ngIf="listingData && listingData.adsv">
+          <p *ngFor="let additem of listingData.adsv">
+            <a href="{{additem.link}}" target="_blank">
+              <img src="{{imgUrl}}{{additem.image}}" class="img-fluid" alt="{{additem.link}}">
+            </a>
+          </p>
+        </div>
       </div>
       <div class="col-md-9">
+        <div *ngIf="listingData && listingData.adsh && listingData.listing.length>0">
+          <p *ngFor="let additem of listingData.adsh | slice:0:1">
+            <a href="{{additem.link}}" target="_blank">
+              <img src="{{imgUrl}}{{additem.image}}" class="img-fluid" alt="{{additem.link}}">
+            </a>
+          </p>
+        </div>
         <div *ngIf="listingData && listingData.listing">
           <div *ngFor="let item of listingData.listing" class="row recentItem">
             <div class=" imgHolder">
@@ -65,14 +78,14 @@
                     <i class="fa fa-share-alt" aria-hidden="true"></i>
                   </span>
                   <a href="">
-                    <i class="fa fa-facebook" ceiboShare [facebook]="{u: repoUrl}" aria-hidden="true"></i>
+                    <i class="fa fa-facebook" ceiboShare [facebook]="{u: repoUrl/item.bid}" aria-hidden="true"></i>
                   </a>
                   <a href="">
-                    <i class="fa fa-twitter" ceiboShare [twitter]="{url:repoUrl, text:'findacross', hashtags:'list your buisness, social, fa'}"
+                    <i class="fa fa-twitter" ceiboShare [twitter]="{url:repoUrl/item.bid, text:'findacross', hashtags:'list your buisness, social, fa'}"
                       aria-hidden="true"></i>
                   </a>
                   <a href="">
-                    <i class="fa fa-google-plus" ceiboShare [googlePlus]="{url:repoUrl}" aria-hidden="true"></i>
+                    <i class="fa fa-google-plus" ceiboShare [googlePlus]="{url:repoUrl/item.bid}" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
@@ -86,6 +99,13 @@
 
         <div *ngIf="listingData && listingData.listing.length==0">
           <h3>Data Not Found</h3>
+        </div>
+        <div *ngIf="listingData && listingData.adsh && listingData.listing.length>0">
+          <p *ngFor="let additem of listingData.adsh | slice:1:2">
+            <a href="{{additem.link}}" target="_blank">
+              <img src="{{imgUrl}}{{additem.image}}" class="img-fluid" alt="{{additem.link}}">
+            </a>
+          </p>
         </div>
 
       </div>

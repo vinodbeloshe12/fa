@@ -1,11 +1,13 @@
 <div *ngIf="homeData && homeData.slider.length>0" class="swiper-container" [swiper]="config">
   <div class="swiper-wrapper">
     <div *ngFor="let item of  homeData.slider" class="swiper-slide" data-swiper-autoplay="5000">
-      <img src="{{imgUrl}}{{item.image}}" height="500" alt="" class="w3-animate-opacity">
+      <a href="{{item.link}}">
+        <img src="{{imgUrl}}{{item.image}}" height="500" alt="" class="w3-animate-opacity">
+      </a>
     </div>
   </div>
   <div class="swiper-scrollbar"></div>
-  <div class="swiper-pagination"></div>
+  <div *ngIf="homeData.slider.length>1" class="swiper-pagination"></div>
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
 </div>

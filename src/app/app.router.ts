@@ -9,6 +9,7 @@ import { DetailsComponent } from './details/details.component';
 import { LoginComponent } from './login/login.component';
 import { EditlistingComponent } from './editlisting/editlisting.component';
 import { ThankyouComponent } from './thankyou/thankyou.component';
+import { ContentComponent } from './content/content.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: ':bid', component: DetailsComponent },
   { path: 'detail/:bid', redirectTo: ':bid' },
-  { path: 'welcome/:bid', component: ThankyouComponent }
+  { path: 'welcome/:bid', component: ThankyouComponent },
+  { path: 'content/:id', component: ContentComponent }
 
 ];
 

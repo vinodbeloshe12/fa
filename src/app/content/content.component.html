@@ -1,0 +1,25 @@
+<div class="container-fluid breadcrumb">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul>
+          <li>
+            <a [routerLink]="['/home']">Home</a>
+          </li>
+
+          <li>{{params.id}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid pageBg">
+  <div *ngIf="contentData" class="container">
+    <h2>{{contentData.title}}</h2>
+    <p [innerHtml]="contentData.description"></p>
+
+    <div *ngIf="contentData.length==0">
+      <h3>Data not found</h3>
+    </div>
+  </div>
+</div>

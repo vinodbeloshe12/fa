@@ -14,5 +14,10 @@ export class HomePageService {
         return this._http.get(AppConst.apiUrl + 'gethomedata').map(res => res.json());
     }
 
+    getContentData(id) {
+        // return this._http.get('http://localhost/finda/index.php/json/getContent?id=' + id).map(res => res.json());
+        return this._http.get(AppConst.apiUrl + 'getContent?id=' + id).map(res => res.json());
+    }
+
 
 }

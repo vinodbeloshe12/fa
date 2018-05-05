@@ -1,8 +1,24 @@
 <div class="container-fluid footer">
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-6">
         ©2015-{{currYear}} findacross.com™ All rights reserved.
+      </div>
+      <div class="col-md-6 right">
+        <ul class="footer">
+          <li [routerLink]="['/content','About Us']">
+            About Us
+          </li>
+          <li [routerLink]="['/content','Privacy Policy']">
+            Privacy Policy
+          </li>
+          <li [routerLink]="['/content','Disclaimer']">
+            Disclaimer
+          </li>
+          <li [routerLink]="['/content','Terms and Conditions']">
+            Terms and Conditions
+          </li>
+        </ul>
       </div>
     </div>
   </div>

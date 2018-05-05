@@ -32,6 +32,7 @@ import { CategoryService } from "./services/category.service";
 import { ListingService } from "./services/listing.service";
 import { DetailService } from "./services/detail.service";
 import { LoginService } from "./services/login.service";
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LoginService } from "./services/login.service";
     AddlistingComponent,
     LoginComponent,
     EditlistingComponent,
-    ThankyouComponent
+    ThankyouComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

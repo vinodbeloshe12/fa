@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-
 import { CeiboShare } from 'ng2-social-share';
 import { ListingService } from "../services/listing.service";
+import { AppConst } from '../app.constants';
 
 
 @Component({
@@ -11,9 +11,9 @@ import { ListingService } from "../services/listing.service";
   styleUrls: ['./listing.component.css']
 })
 export class ListingComponent implements OnInit {
-  public repoUrl = 'https://github.com/vinodbeloshe12';
+  public repoUrl = 'http://findacross.com';
 
-
+  imgUrl = AppConst.imgUrl;
   config: any = {
     direction: 'horizontal',
     slidesPerView: '8',

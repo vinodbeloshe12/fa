@@ -3,7 +3,25 @@
   padding: 6px;
   color: #EDEDED;
   /* height: 40px; */
-  font-size: 13px;
+  font-size: 11px;
   position: relative;
   /*bottom: 0px; */
+}
+
+.right {
+  float: right;
+}
+
+ul.footer {
+  margin: 0px;
+  font-size: 11px !important;
+  list-style: none;
+  padding: 0px !important;
+  float: right;
+}
+
+ul.footer li {
+  display: inline-block;
+  margin-left: 11px;
+  cursor: pointer;
 }

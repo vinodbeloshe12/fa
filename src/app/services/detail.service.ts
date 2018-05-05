@@ -9,7 +9,8 @@ export class DetailService {
     constructor(private http: Http) { }
 
     getDetail(bid) {
-        return this.http.get(AppConst.apiUrl + 'getDetails?name=' + bid).map(res => res.json());
+        return this.http.get('http://localhost/finda/index.php/json/getDetails?name=' + bid).map(res => res.json());
+        // return this.http.get(AppConst.apiUrl + 'getDetails?name=' + bid).map(res => res.json());
     }
 
 
