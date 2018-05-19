@@ -7,7 +7,6 @@
   top: 0px;
 }
 
-
 /* 
 input[type=text] {
   width: 100px;
@@ -140,4 +139,32 @@ input {
   color: #fff;
   /* margin-right: 10px; */
   cursor: pointer;
+}
+
+span.loginMenu {
+  position: relative;
+}
+
+span.loginMenu ul {
+  width: 100px;
+  background: #1f3781;
+  list-style: none;
+  top: 30px;
+  position: absolute;
+  text-align: left;
+  padding: 5px 10px;
+  margin: 0;
+  left: 0px;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+span.loginMenu ul li {
+  padding: 5px;
+}
+
+span.loginMenu:hover ul {
+  opacity: 1 !important;
+  visibility: visible !important;
 }

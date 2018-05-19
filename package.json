@@ -31,6 +31,8 @@
     "ng2-lazyload-image": "^2.4.0",
     "ng2-social-share": "0.0.10",
     "ngx-bar-rating": "^1.1.0",
+    "ngx-bootstrap": "^3.0.0",
+    "ngx-editor": "^3.3.0",
     "ngx-progressbar": "2.0.8",
     "ngx-swiper-wrapper": "^4.6.6",
     "ngx-tabs": "0.0.13",

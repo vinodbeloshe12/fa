@@ -43,6 +43,7 @@ export class DetailsComponent implements OnInit {
     val.bid = this.params.bid;
     this.detailservice.addReview(val).subscribe((res) => {
       this.getDetail();
+      this.reviewData = {};
     },
       err => console.log(err));
   }

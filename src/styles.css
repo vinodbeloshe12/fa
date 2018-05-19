@@ -14,6 +14,26 @@ body {
   margin: 0;
 }
 
+.ngx-toolbar {
+  background-color: #1f3781 !important;
+  font-size: 0.7rem !important;
+  padding: .2rem;
+  border: 1px solid #ddd;
+}
+
+.ngx-editor .ngx-wrapper .ngx-editor-textarea {
+  min-height: 5rem;
+  padding: .5rem .8rem 1rem;
+  border: 1px solid #ddd;
+  background-color: transparent;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 2;
+  height: 200px !important;
+  background: #fff !important;
+  position: relative;
+}
+
 .ng-progress.active .spinner .spinner-icon {
   left: 50%;
   top: 50% !important;

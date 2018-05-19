@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { GoTopButtonModule } from 'ng2-go-top-button';
 import { Http, HttpModule, BrowserXhr } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -12,6 +13,9 @@ import { CeiboShare } from 'ng2-social-share';
 import { BarRatingModule } from "ngx-bar-rating";
 import { NgProgressModule, NgProgressBrowserXhr } from 'ngx-progressbar';
 import { LazyLoadImageModule } from 'ng2-lazyload-image';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { NgxEditorModule } from 'ngx-editor';
+
 
 //components
 import { AppComponent } from './app.component';
@@ -59,9 +63,12 @@ import { ContentComponent } from './content/content.component';
     FormsModule,
     AngularFontAwesomeModule,
     HttpModule,
+    HttpClientModule,
     BarRatingModule,
     NgProgressModule,
     LazyLoadImageModule,
+    NgxEditorModule,
+    TooltipModule.forRoot(),
   ],
   // exports: [GoTopButtonModule],
   providers: [HomePageService, CategoryService, ListingService, DetailService, LoginService, { provide: BrowserXhr, useClass: NgProgressBrowserXhr }],

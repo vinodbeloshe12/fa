@@ -64,7 +64,7 @@
                   <div class="input-group-addon" style="width: 2.6rem">
                     <i class="fa fa-buysellads"></i>
                   </div>
-                  <input type="text" #bname="ngModel" [(ngModel)]="listingData.bname" name="bname" class="form-control" id="bname" placeholder="Business Name"
+                  <input type="text" #bname="ngModel" [(ngModel)]="listingData.buisnessname" name="bname" class="form-control" id="bname" placeholder="Business Name"
                     required autofocus>
                 </div>
               </div>
@@ -81,6 +81,43 @@
 
 
 
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group has-danger">
+                <label class="sr-only" for="category">Category Name</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-buysellads"></i>
+                  </div>
+                  <input type="text" readonly="true" #category="ngModel" [(ngModel)]="listingData.category" name="category" class="form-control"
+                    id="category" placeholder="Business Name" required autofocus>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+          </div>
+
+
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group has-danger">
+                <label class="sr-only" for="subcategory">Subcategory Name</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-buysellads"></i>
+                  </div>
+                  <input type="text" readonly="true" #subcategory="ngModel" [(ngModel)]="listingData.subcategory" name="subcategory" class="form-control"
+                    id="subcategory" placeholder="Business Name" required autofocus>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+          </div>
 
           <div class="row justify-content-center">
             <div class="col-md-6">
@@ -106,6 +143,8 @@
               </div>
             </div>
           </div>
+
+
           <div class="row justify-content-center">
             <div class="col-md-6">
               <div class="form-group">
@@ -164,7 +203,7 @@
                   <div class="input-group-addon" style="width: 2.6rem">
                     <i class="fa fa-map-marker"></i>
                   </div>
-                  <input type="text" #address="ngModel" [(ngModel)]="listingData.address" name="add" class="form-control" id="add" placeholder="Address"
+                  <input type="text" #address="ngModel" [(ngModel)]="listingData.addline1" name="add" class="form-control" id="add" placeholder="Address"
                     required>
                 </div>
               </div>
@@ -188,7 +227,7 @@
                   <div class="input-group-addon" style="width: 2.6rem">
                     <i class="fa fa-map-marker"></i>
                   </div>
-                  <input type="text" #landmark="ngModel" [(ngModel)]="listingData.landmark" name="landmark" class="form-control" id="landmark"
+                  <input type="text" #landmark="ngModel" [(ngModel)]="listingData.addline2" name="landmark" class="form-control" id="landmark"
                     placeholder="Landmark" required>
                 </div>
               </div>
@@ -212,17 +251,17 @@
                   <div class="input-group-addon" style="width: 2.6rem">
                     <i class="fa fa-map-marker"></i>
                   </div>
-                  <input type="text" pattern="[0-9]*" minlength="6" maxlength="6" [(ngModel)]="listingData.zip" #zip="ngModel" name="zip" class="form-control"
-                    id="zip" placeholder="Zip Code" required>
+                  <input type="text" pattern="[0-9]*" minlength="6" maxlength="6" [(ngModel)]="listingData.pin" #pin="ngModel" name="pin" class="form-control"
+                    id="pin" placeholder="Zip Code" required>
                 </div>
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-control-feedback">
-                <span [hidden]="zip.valid || zip.pristine" class="text-danger align-middle">
-                  <div class="errDiv" [hidden]="!zip.hasError('required')">
+                <span [hidden]="pin.valid || pin.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!pin.hasError('required')">
                     <i class="fa fa-close"></i> Please Enter Zip Code</div>
-                  <div class="errDiv" [hidden]="!zip.hasError('pattern')">
+                  <div class="errDiv" [hidden]="!pin.hasError('pattern')">
                     <i class="fa fa-close"></i>Only numbers allowed</div>
                 </span>
               </div>
@@ -266,8 +305,158 @@
 
 
       </tab>
-      <tab title="Account Setting">
-        tab222222222s2
+      <tab title="Other Details">
+        <form role="form" (ngSubmit)="saveData(listingData)" #addlisting="ngForm">
+          <!-- <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="listingData.about"></app-ngx-editor> -->
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="" for="about">About</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+
+                  <app-ngx-editor name="about" #about="ngModel" required [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="listingData.about"></app-ngx-editor>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="about.valid || about.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!about.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter About </div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="website">website</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-globe"></i>
+                  </div>
+                  <input type="text" #website="ngModel" [(ngModel)]="listingData.website" name="website" class="form-control" id="website"
+                    placeholder="Website Url" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="landmark.valid || landmark.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!landmark.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Landmark </div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="facebook">facebook</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-facebook"></i>
+                  </div>
+                  <input type="text" #facebook="ngModel" [(ngModel)]="listingData.facebook" name="facebook" class="form-control" id="facebook"
+                    placeholder="Facebook Url" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="facebook.valid || facebook.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!facebook.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Facebook Url </div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="twitter">twitter</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-twitter"></i>
+                  </div>
+                  <input type="text" #twitter="ngModel" [(ngModel)]="listingData.twitter" name="twitter" class="form-control" id="twitter"
+                    placeholder="Twitter Url" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="twitter.valid || twitter.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!twitter.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Twitter Url </div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="google">google</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-google"></i>
+                  </div>
+                  <input type="text" #google="ngModel" [(ngModel)]="listingData.google" name="google" class="form-control" id="google" placeholder="Google Url"
+                    required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="google.valid || google.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!google.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Google Url</div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="linkedin">linkedin</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-linkedin"></i>
+                  </div>
+                  <input type="text" #linkedin="ngModel" [(ngModel)]="listingData.linkedin" name="linkedin" class="form-control" id="linkedin"
+                    placeholder="Linkedin Url" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="linkedin.valid || linkedin.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!linkedin.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Linkedin Url</div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center" style="padding-top: 1rem">
+
+            <div class="col-md-6">
+              <button [disabled]="!addlisting.form.valid" type="submit" class="btn btn-success">
+                <i class="fa fa-save"></i> Submit</button>
+              <span *ngIf="!addlisting.form.valid">Please Enter All Fields</span>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </form>
+
       </tab>
 
     </tabset>

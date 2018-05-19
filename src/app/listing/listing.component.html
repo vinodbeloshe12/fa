@@ -100,7 +100,7 @@
         <div *ngIf="listingData && listingData.listing.length==0">
           <h3>Data Not Found</h3>
         </div>
-        <div *ngIf="listingData && listingData.adsh && listingData.listing.length>0">
+        <div *ngIf="listingData && listingData.adsh && listingData.listing.length>6">
           <p *ngFor="let additem of listingData.adsh | slice:1:2">
             <a href="{{additem.link}}" target="_blank">
               <img src="{{imgUrl}}{{additem.image}}" class="img-fluid" alt="{{additem.link}}">

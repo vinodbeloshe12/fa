@@ -26,9 +26,16 @@
         </section>
         <!-- <i class="fa fa-map-marker" aria-hidden="true"></i>
         <span>{{selectedCity}}</span> -->
-        <button class="addBtn" [routerLink]="['/addlisting']"> + List Your Buisness</button>
-        <button class="addBtn" [routerLink]="['/login']">
+        <button *ngIf="!userData" class="addBtn" [routerLink]="['/addlisting']"> + List Your Buisness</button>
+        <button *ngIf="!userData" class="addBtn" [routerLink]="['/login']">
           <i class="fa fa-user" aria-hidden="true"></i> Login</button>
+        <span class="loginMenu" *ngIf="userData">
+          <i class="fa fa-user" aria-hidden="true"></i>{{userData.details.bid}}
+          <ul>
+            <li [routerLink]="['/editprofile']">Profile</li>
+            <li (click)="logout()">Logout</li>
+          </ul>
+        </span>
       </div>
     </div>
   </div>

@@ -48,6 +48,7 @@ export class EmitterService {
   providers: [nglocationService]
 })
 export class HeaderComponent implements OnInit {
+  userData: any;
 
   constructor(private router: Router, private listingservice: ListingService, private _ngLocation: nglocationService) {
     _ngLocation.getCitydata();
@@ -66,10 +67,13 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit() {
+    this.userData = JSON.parse(localStorage.getItem("userData"));
     this.selectedCity = localStorage.getItem('city');
-    console.log("cityyyyy", this.selectedCity)
   }
-
+  logout() {
+    localStorage.setItem("userData", "");
+    location.href = "/home";
+  }
 
   changeRoute(id) {
     this.searchTerms = "";

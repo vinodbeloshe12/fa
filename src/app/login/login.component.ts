@@ -19,11 +19,11 @@ export class LoginComponent implements OnInit {
   login(data) {
     console.log("login data", data);
     this.loginService.login(data).subscribe((res) => {
-      if (res == true) {
-        this.router.navigate(['editprofile']);
-      } else {
-        console.log("err");
-      }
+
+      localStorage.setItem("userData", JSON.stringify(res));
+      // this.router.navigate(['editprofile']);
+      location.href = "/editprofile";
+
     });
   }
 }
