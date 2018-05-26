@@ -18,6 +18,7 @@ import { NgxEditorModule } from 'ngx-editor';
 
 
 //components
+import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -36,6 +37,7 @@ import { CategoryService } from "./services/category.service";
 import { ListingService } from "./services/listing.service";
 import { DetailService } from "./services/detail.service";
 import { LoginService } from "./services/login.service";
+import { FileService } from './services/file.service';
 import { ContentComponent } from './content/content.component';
 
 @NgModule({
@@ -52,7 +54,8 @@ import { ContentComponent } from './content/content.component';
     LoginComponent,
     EditlistingComponent,
     ThankyouComponent,
-    ContentComponent
+    ContentComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,7 @@ import { ContentComponent } from './content/content.component';
     TooltipModule.forRoot(),
   ],
   // exports: [GoTopButtonModule],
-  providers: [HomePageService, CategoryService, ListingService, DetailService, LoginService, { provide: BrowserXhr, useClass: NgProgressBrowserXhr }],
+  providers: [HomePageService, FileService, CategoryService, ListingService, DetailService, LoginService, { provide: BrowserXhr, useClass: NgProgressBrowserXhr }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

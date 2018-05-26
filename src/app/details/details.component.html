@@ -26,14 +26,32 @@
     <div class="row">
       <div class="col-md-6">
         <h1 class="title">{{detailsData.details.buisnessname}}</h1>
+        <h5>Contact Person: {{detailsData.details.cperson}}</h5>
         <div class="add">
           <i class="fa fa-map-marker" aria-hidden="true"></i>
           {{detailsData.details.addline1}},{{detailsData.details.addline2}},{{detailsData.details.city}}
         </div>
         <div class="call">
-          <i class="fa fa-phone" aria-hidden="true"></i>
-          +12 34567890 | 022 12345678
+          <i class="fa fa-phone" aria-hidden="true"></i> {{detailsData.details.contact}} |
+          <i class="fa fa-envelope" aria-hidden="true"></i> {{detailsData.details.email}}
         </div>
+
+        <div class="links">
+          Social :
+          <a href="{{detailsData.details.facebook}}" target="_blank">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </a>
+          <a href="{{detailsData.details.twitter}}" target="_blank">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="{{detailsData.details.google}}" target="_blank">
+            <i class="fa fa-google" aria-hidden="true"></i>
+          </a>
+          <a href="{{detailsData.details.linkedin}}" target="_blank">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+          </a>
+        </div>
+
         <!-- <div class="email">
           <a href="">
             <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -123,11 +141,19 @@
               </div>
             </div>
             <div [ngClass]="openReview?'active':''" class="reviewBox">
-              <form>
+              <form (ngSubmit)="addReview(reviewData)" #review="ngForm">
                 <div class="form-group col-md-6">
                   <label for="exampleInputEmail1">Email*</label>
-                  <input [(ngModel)]="reviewData.email" type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter email">
+                  <input #email="ngModel" autofocus pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required [(ngModel)]="reviewData.email"
+                    type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <div class="form-control-feedback">
+                    <span [hidden]="email.valid || email.pristine" class="text-danger align-middle">
+                      <div class="errDiv" [hidden]="!email.hasError('required')">
+                        <i class="fa fa-close"></i> Please Enter Email </div>
+                      <div class="errDiv" [hidden]="!email.hasError('pattern')">
+                        <i class="fa fa-close"></i>Please Enter Valid Email</div>
+                    </span>
+                  </div>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="exampleInputPassword1">Name*</label>
@@ -143,7 +169,7 @@
                   <label for="exampleTextarea">Your Review</label>
                   <textarea [(ngModel)]="reviewData.review" name="review" class="form-control" id="exampleTextarea" rows="3"></textarea>
                 </div>
-                <button (click)="addReview(reviewData)" type="submit" class="btn btn-primary reviewSubmit">Submit</button>
+                <button type="submit" class="btn btn-primary reviewSubmit">Submit</button>
               </form>
             </div>
 
@@ -168,27 +194,49 @@
         <div class="callEnq">
           <i class="fa fa-phone" aria-hidden="true"></i>
           <span>
-            +91-8898-443344
+            +91 9702 123 923
           </span>
         </div>
 
-        <form class="contactUs">
+        <form (ngSubmit)="addEnquiry(enquiryData)" #enquiry="ngForm" class="contactUs">
           <h2>Contact Us</h2>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter Name">
-            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            <input #name="ngModel" autofocus [(ngModel)]="enquiryData.name" required name="name" type="text" class="form-control" placeholder="Enter Name">
+            <!-- <small id="nameHelp" class="form-text text-muted">We'll never share your name with anyone else.</small> -->
+            <div class="form-control-feedback">
+              <span [hidden]="name.valid || name.pristine" class="text-danger align-middle">
+                <div class="errDiv" [hidden]="!name.hasError('required')">
+                  <i class="fa fa-close"></i> Please Enter Name </div>
+              </span>
+            </div>
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Enter Email">
+            <input #email="ngModel" autofocus pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="enquiryData.email"
+              required name="email" type="email" class="form-control" placeholder="Enter Email">
+            <div class="form-control-feedback">
+              <span [hidden]="email.valid || email.pristine" class="text-danger align-middle">
+                <div class="errDiv" [hidden]="!email.hasError('required')">
+                  <i class="fa fa-close"></i> Please Enter Email </div>
+                <div class="errDiv" [hidden]="!email.hasError('pattern')">
+                  <i class="fa fa-close"></i>Please Enter Valid Email</div>
+              </span>
+            </div>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter Contact No.">
+            <input type="text" pattern="[0-9]*" #contact="ngModel" minlength="8" maxlength="10" [(ngModel)]="enquiryData.contact" name="contact"
+              class="form-control" id="contact" placeholder="Contact No">
+            <div class="form-control-feedback">
+              <span [hidden]="contact.valid || contact.pristine" class="text-danger align-middle">
+                <div class="errDiv" [hidden]="!contact.hasError('pattern')">
+                  <i class="fa fa-close"></i>Only numbers allowed</div>
+              </span>
+            </div>
           </div>
 
           <div class="form-group">
-            <textarea name="" id="" cols="20" rows="5"></textarea>
+            <textarea [(ngModel)]="enquiryData.message" name="message" id="" cols="20" rows="5"></textarea>
           </div>
-          <button type="submit" class="btn btn-fa">
+          <button [disabled]="!enquiry.form.valid" type="submit" class="btn btn-fa">
             <i class="fa fa-check" aria-hidden="true"></i>Send Enquiry</button>
         </form>
 

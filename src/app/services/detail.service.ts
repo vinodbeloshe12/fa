@@ -28,4 +28,10 @@ export class DetailService {
         let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
         return this.http.post(AppConst.apiUrl + 'addReview', this.getFormUrlEncoded(data), { headers }).map(res => res.json());
     }
+
+    enquiry(data) {
+        let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        // return this.http.post('http://localhost/finda/index.php/json/enquiry', this.getFormUrlEncoded(data), { headers }).map(res => res.json());
+        return this.http.post(AppConst.apiUrl + 'enquiry', this.getFormUrlEncoded(data), { headers }).map(res => res.json());
+    }
 }

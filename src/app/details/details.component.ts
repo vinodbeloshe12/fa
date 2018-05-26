@@ -10,6 +10,7 @@ import { AppConst } from "../app.constants";
 })
 export class DetailsComponent implements OnInit {
   imgUrl = AppConst.imgUrl;
+  enquiryData: any = {};
   config: any = {
     direction: 'horizontal',
     slidesPerView: '5',
@@ -46,6 +47,16 @@ export class DetailsComponent implements OnInit {
       this.reviewData = {};
     },
       err => console.log(err));
+  }
+
+
+  addEnquiry(data) {
+    data.bid = this.params.bid;
+    this.detailservice.enquiry(data).subscribe((res) => {
+      this.enquiryData = {};
+    },
+      err => console.log(err));
+
   }
   changeImage(val) {
     this.listingImage = val;
