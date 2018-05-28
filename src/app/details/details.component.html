@@ -144,32 +144,47 @@
               <form (ngSubmit)="addReview(reviewData)" #review="ngForm">
                 <div class="form-group col-md-6">
                   <label for="exampleInputEmail1">Email*</label>
-                  <input #email="ngModel" autofocus pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required [(ngModel)]="reviewData.email"
-                    type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <input #emailid="ngModel" autofocus pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required [(ngModel)]="reviewData.email"
+                    type="email" name="emailid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                   <div class="form-control-feedback">
-                    <span [hidden]="email.valid || email.pristine" class="text-danger align-middle">
-                      <div class="errDiv" [hidden]="!email.hasError('required')">
+                    <span [hidden]="emailid.valid || emailid.pristine" class="text-danger align-middle">
+                      <div class="errDiv" [hidden]="!emailid.hasError('required')">
                         <i class="fa fa-close"></i> Please Enter Email </div>
-                      <div class="errDiv" [hidden]="!email.hasError('pattern')">
+                      <div class="errDiv" [hidden]="!emailid.hasError('pattern')">
                         <i class="fa fa-close"></i>Please Enter Valid Email</div>
                     </span>
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="exampleInputPassword1">Name*</label>
-                  <input [(ngModel)]="reviewData.name" type="text" name="name" class="form-control" id="exampleInputPassword1" placeholder="Enter name">
+                  <input [(ngModel)]="enquiryData.name" #rname="ngModel" autofocus required type="text" name="rname" class="form-control" id="exampleInputPassword1"
+                    placeholder="Enter name">
+                  <div class="form-control-feedback">
+                    <span [hidden]="rname.valid || rname.pristine" class="text-danger align-middle">
+                      <div class="errDiv" [hidden]="!rname.hasError('required')">
+                        <i class="fa fa-close"></i> Please Enter Name </div>
+                    </span>
+                  </div>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="rating1">Rating*</label>
                   <!-- <input [(ngModel)]="reviewData.rating" type="text" name="rating" class="form-control" id="rating1" placeholder="Enter name"> -->
                   <bar-rating [(rate)]="defaultrating" name="rating" [max]="4" [(ngModel)]="reviewData.rating" [theme]="'movie'" [showText]="true"
                     [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"></bar-rating>
+
                 </div>
                 <div class="form-group col-md-12">
-                  <label for="exampleTextarea">Your Review</label>
-                  <textarea [(ngModel)]="reviewData.review" name="review" class="form-control" id="exampleTextarea" rows="3"></textarea>
+                  <label for="exampleTextarea">Your Review*</label>
+                  <textarea #rmessage="ngModel" autofocus required [(ngModel)]="reviewData.review" name="review" class="form-control" id="exampleTextarea"
+                    rows="3"></textarea>
+                  <div class="form-control-feedback">
+                    <span [hidden]="rmessage.valid || rmessage.pristine" class="text-danger align-middle">
+                      <div class="errDiv" [hidden]="!rmessage.hasError('required')">
+                        <i class="fa fa-close"></i> Please Enter Review </div>
+                    </span>
+                  </div>
                 </div>
-                <button type="submit" class="btn btn-primary reviewSubmit">Submit</button>
+                <button [disabled]="!review.form.valid" type="submit" class="btn btn-primary reviewSubmit">Submit</button>
               </form>
             </div>
 

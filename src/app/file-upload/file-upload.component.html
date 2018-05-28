@@ -5,7 +5,8 @@
         Click to browse
       </a>
       Or Drag & Drop to upload your files
-      <input type="file" #file [multiple]="(maxFiles > 1)" (change)="onFileChange($event)" style="display:none" />
+      <input type="file" #file name="multipleUpload[]" [multiple]="(maxFiles > 1)" (change)="onFileChange($event)" style="display:none"
+      />
     </div>
   </div>
 

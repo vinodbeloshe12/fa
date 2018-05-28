@@ -67,8 +67,7 @@ export class FileUploadComponent implements OnInit {
         formData.append("file[]", files[j], files[j].name);
       }
       var parameters = {
-        projectId: this.projectId,
-        sectionId: this.sectionId
+        bid: this.projectId
       }
       this.fileService.upload(formData, parameters)
         .subscribe(

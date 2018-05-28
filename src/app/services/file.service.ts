@@ -6,14 +6,14 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class FileService {
-  _baseURL: string = ''
+  _baseURL: string = 'http://findacross.com/finda/index.php/json/'
   constructor(private http: Http) { }
 
   upload(files, parameters) {
-    let headers = new Headers();
+    let headers = new Headers({});
     let options = new RequestOptions({ headers: headers });
     options.params = parameters;
-    return this.http.post(this._baseURL + 'upload', files, options)
+    return this.http.post(this._baseURL + 'uploadImage', files, options)
       .map(response => response.json())
       .catch(error => Observable.throw(error));
 

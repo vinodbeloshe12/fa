@@ -37,8 +37,8 @@
                   <div class="input-group-addon" style="width: 2.6rem">
                     <i class="fa fa-link"></i>
                   </div>
-                  <input type="text" pattern="^\S*$" #bid="ngModel" [(ngModel)]="listingData.bid" name="bid" class="form-control" id="bid"
-                    placeholder="findacross.com/businessname" required autofocus>
+                  <input type="text" readonly pattern="^\S*$" #bid="ngModel" [(ngModel)]="listingData.bid" name="bid" class="form-control"
+                    id="bid" placeholder="findacross.com/businessname" required autofocus>
                 </div>
               </div>
             </div>
@@ -74,6 +74,29 @@
                 <span [hidden]="bname.valid || bname.pristine" class="text-danger align-middle">
                   <div class="errDiv" [hidden]="!bname.hasError('required')">
                     <i class="fa fa-close"></i> Please Enter Buisness Name </div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-group has-danger">
+                <label class="sr-only" for="bname">Contact Person</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
+                    <i class="fa fa-buysellads"></i>
+                  </div>
+                  <input type="text" #cperson="ngModel" [(ngModel)]="listingData.cperson" name="cperson" class="form-control" id="cperson"
+                    placeholder="Contact Person Name" required autofocus>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-control-feedback">
+                <span [hidden]="cperson.valid || cperson.pristine" class="text-danger align-middle">
+                  <div class="errDiv" [hidden]="!cperson.hasError('required')">
+                    <i class="fa fa-close"></i> Please Enter Contact Person Name </div>
                 </span>
               </div>
             </div>
@@ -464,7 +487,7 @@
       <tab title="Images">
         <div class="row">
           <div class="col-md-12">
-            <app-file-upload projectId="100" sectionId="107" maxFiles="4" maxSize="2" fileExt="JPG, GIF, PNG" (uploadStatus)="refreshImages($event)">
+            <app-file-upload projectId="{{listingData.id}}" maxFiles="4" maxSize="2" fileExt="JPG, GIF, PNG" (uploadStatus)="refreshImages($event)">
             </app-file-upload>
           </div>
         </div>

@@ -36,7 +36,7 @@
 <div class="container-fluid pageBg">
   <div class="container">
     <div *ngIf="categoryData && categoryData.length>0" class="row">
-      <div *ngFor="let item of categoryData" class="col-md-3 categoryHolder">
+      <div *ngFor="let item of categoryData" class="col-md-4 categoryHolder">
         <a [routerLink]="['/listing',params.name,params.id,item.name,item.id]">
           <img [defaultImage]="loaderImg" [lazyLoad]="'http://admin.findacross.com/uploads/' +item.image" alt="{{item.name}}">
           <!-- <img src="http://admin.findacross.com/uploads/{{item.image}}" alt="{{item.name}}"> -->
