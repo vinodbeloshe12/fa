@@ -16,14 +16,18 @@
 <div class="container-fluid pageBg">
   <div class="container">
     <div *ngIf="homeData && homeData.category" class="row mt20">
+      <div class="section-title">
+        <h2>Featured Categories</h2>
+        <div class="section-subtitle">Catalog of Categories</div>
+        <span class="section-separator"></span>
+        <p>Explore some of the best buisness, places around the city</p>
+      </div>
       <div *ngFor="let item of homeData.category" class="col-md-3 categoryHolder">
         <a [routerLink]="['/category',item.name,item.id]">
-          <img src="{{imgUrl}}{{item.image}}" alt="{{item.name}}">
+          <img [defaultImage]="loaderImg" [lazyLoad]="imgUrl+item.image" alt="{{item.name}}">
           <div class="catLabel">{{item.name}}</div>
         </a>
       </div>
-
-
     </div>
 
 
@@ -130,5 +134,19 @@
       </div>
 
     </div> -->
+  </div>
+</div>
+
+
+<div class="container-fluid addlistingDiv">
+  <div class="divBgImg"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Visit the Best Places In Your City</h3>
+        <p>Find great places , hotels , restourants , shops.</p>
+        <button [routerLink]="['/addlisting']" class="faBtn">Add Listing</button>
+      </div>
+    </div>
   </div>
 </div>

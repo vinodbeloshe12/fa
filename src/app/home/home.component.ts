@@ -9,6 +9,7 @@ import { AppConst } from "../app.constants"
 })
 
 export class HomeComponent implements OnInit {
+  loaderImg = AppConst.loaderImage;
   homeData: any;
   imgUrl = AppConst.imgUrl;
   showCategoryTo: number = 12;
