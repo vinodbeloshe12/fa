@@ -8,6 +8,10 @@
   top: 0px;
 }
 
+.logo img {
+  width: 220px;
+}
+
 /* 
 input[type=text] {
   width: 100px;

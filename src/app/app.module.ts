@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { GoTopButtonModule } from 'ng2-go-top-button';
 import { Http, HttpModule, BrowserXhr } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { SwiperModule } from 'ngx-swiper-wrapper';
@@ -15,7 +14,8 @@ import { NgProgressModule, NgProgressBrowserXhr } from 'ngx-progressbar';
 import { LazyLoadImageModule } from 'ng2-lazyload-image';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxEditorModule } from 'ngx-editor';
-
+import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
+// import { GoTopButtonModule } from 'ng2-go-top-button';
 
 //components
 import { FileUploadComponent } from './file-upload/file-upload.component';
@@ -39,6 +39,25 @@ import { DetailService } from "./services/detail.service";
 import { LoginService } from "./services/login.service";
 import { FileService } from './services/file.service';
 import { ContentComponent } from './content/content.component';
+
+export function metaFactory(): MetaLoader {
+  return new MetaStaticLoader({
+    pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
+    pageTitleSeparator: '-',
+    applicationName: 'Findacross',
+    defaults: {
+      title: 'Findacross - Free advertising site',
+      description:
+        'Findacross,free listing sites for b2b, b2c a local search engine. provides Best Deals, Hotels, Movies, Buses and Cabs in Bhandup Muumbai India',
+      'og:image': '../assets/images/logo.png',
+      'og:type': 'website',
+      'og:locale': 'en_US',
+      'og:locale:alternate': 'en_US'
+    }
+  });
+}
+
+
 
 @NgModule({
   declarations: [
@@ -69,11 +88,16 @@ import { ContentComponent } from './content/content.component';
     HttpClientModule,
     BarRatingModule,
     NgProgressModule,
+    // GoTopButtonModule,
     LazyLoadImageModule,
     NgxEditorModule,
     TooltipModule.forRoot(),
+    MetaModule.forRoot({
+      provide: MetaLoader,
+      useFactory: metaFactory
+    })
   ],
-  // exports: [GoTopButtonModule],
+
   providers: [HomePageService, FileService, CategoryService, ListingService, DetailService, LoginService, { provide: BrowserXhr, useClass: NgProgressBrowserXhr }],
   bootstrap: [AppComponent]
 })

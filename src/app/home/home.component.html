@@ -18,11 +18,11 @@
     <div *ngIf="homeData && homeData.category" class="row mt20">
       <div class="section-title">
         <h2>Featured Categories</h2>
-        <div class="section-subtitle">Catalog of Categories</div>
+        <div class="section-subtitle">Featured Categories</div>
         <span class="section-separator"></span>
         <p>Explore some of the best buisness, places around the city</p>
       </div>
-      <div *ngFor="let item of homeData.category" class="col-md-3 categoryHolder">
+      <div *ngFor="let item of homeData.category" class="col-6 col-lg-4 col-xl-3 categoryHolder">
         <a [routerLink]="['/category',item.name,item.id]">
           <img [defaultImage]="loaderImg" [lazyLoad]="imgUrl+item.image" alt="{{item.name}}">
           <div class="catLabel">{{item.name}}</div>
@@ -32,9 +32,9 @@
 
 
     <!-- <div class="row moreCat"> -->
-    <div *ngIf="homeData && homeData.category>8" class="row moreCat">
+    <!-- <div *ngIf="homeData && homeData.category>8" class="row moreCat">
       <a (click)="showMoreCategory()"> More Categories</a>
-    </div>
+    </div> -->
 
 
 
@@ -142,7 +142,7 @@
   <div class="divBgImg"></div>
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-12">
         <h3>Visit the Best Places In Your City</h3>
         <p>Find great places , hotels , restourants , shops.</p>
         <button [routerLink]="['/addlisting']" class="faBtn">Add Listing</button>

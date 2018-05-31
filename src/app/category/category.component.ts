@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { CategoryService } from "../services/category.service";
 import { AppConst } from "../app.constants";
-
+import { MetaService } from "@ngx-meta/core";
 
 @Component({
   selector: 'app-category',
@@ -25,7 +25,7 @@ export class CategoryComponent implements OnInit {
     autoplay: false
   };
 
-  constructor(public activatedRoute: ActivatedRoute, private categoryservice: CategoryService) { }
+  constructor(public activatedRoute: ActivatedRoute, readonly meta: MetaService, private categoryservice: CategoryService) { }
 
 
   ngOnInit() {
@@ -33,10 +33,15 @@ export class CategoryComponent implements OnInit {
     // });
     this.activatedRoute.params.subscribe(params => {
       this.params = params;
+      console.log("param", this.params)
       // window.history.pushState('', params.name, '/' + params.name);
       this.getCategoryData();
       this.getAllCategory();
     });
+
+    this.meta.setTitle(`${this.params.name}`);
+    this.meta.setTag("keywords", `${this.params.name}` + ' in Mumbai,' + `${this.params.name}` + ' in Bhandup, Mumbai');
+    this.meta.setTag("description", `${this.params.name}` + ' in Mumbai,' + `${this.params.name}` + ' in Bhandup, Mumbai');
   }
 
   getAllCategory() {

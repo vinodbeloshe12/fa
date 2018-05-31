@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { DetailService } from "../services/detail.service";
 import { AppConst } from "../app.constants";
+import { MetaService } from "@ngx-meta/core";
 
 @Component({
   selector: 'app-details',
@@ -28,7 +29,7 @@ export class DetailsComponent implements OnInit {
   openReview = false;
   reviewData = {};
   services: any = [];
-  constructor(public activatedRoute: ActivatedRoute, private detailservice: DetailService) { }
+  constructor(public activatedRoute: ActivatedRoute, readonly meta: MetaService, private detailservice: DetailService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
@@ -63,10 +64,15 @@ export class DetailsComponent implements OnInit {
   }
   getDetail() {
     this.detailservice.getDetail(this.params.bid).subscribe(res => {
+      this.enquiryData = {};
       this.detailsData = res;
       if (res && res.images.length > 0) {
         this.listingImage = res.images[0].image;
         this.services = this.detailsData.details.services ? this.detailsData.details.services.split(',') : [];
+        this.meta.setTitle(`${this.detailsData.details.buisnessname}`);
+        this.meta.setTag("keywords", `${this.detailsData.details.buisnessname}` + ' in Mumbai,' + `${this.services}` + ' in Bhandup, Mumbai');
+        this.meta.setTag("description", `${this.detailsData.details.buisnessname}` + ',' + `${this.detailsData.details.category}` + ', ' + `${this.detailsData.details.category}` + ', ' + `${this.services}` + ' in Bhandup, Mumbai');
+
       }
     });
   }
